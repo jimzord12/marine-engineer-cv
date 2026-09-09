@@ -1,6 +1,28 @@
 # Marine Engineer CV Studio
 
-Three distinct, editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+Four editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+
+## Flagship / two-page portrait edition
+
+The newest design introduces a centered circular portrait framed by drafting marks, contact details on both sides, and a name/rank plate overlapping the portrait's lower edge. Deep navy, warm brass and a pale nameplate establish a distinct maritime identity.
+
+[Open the two-page Flagship PDF](exports/review/04-flagship-v2.pdf)
+
+![Flagship two-page preview](previews/review/04-flagship-v2-spread.png)
+
+Each embarkation is a separate timeline entry, even when the ship and employer repeat. Five fictional voyages include sign-on/sign-off dates, rank, machinery and power. The certificate register uses a different table structure for scope, issue and expiry/review dates. All certificate details are illustrative, not advice on legal validity or endorsements. No real certificate numbers or scans are included.
+
+Edit `content/flagship-example.json` and `designs/04-flagship.typ`. The first three voyages appear on page one; the remainder continue on page two. Longer content can flow to additional pages, but pagination and the fixed portrait header require visual review after editing. The portrait in `assets/fictional-engineer.png` is AI-generated and depicts no identified candidate. Replace it with the candidate's own authorised photograph in a private working copy.
+
+The sample's day totals are calculated as calendar days between sign-on and sign-off inclusive: 926 days across five voyages, including 379 as Second Engineer. This demonstration convention is not a certification of qualifying sea service. The nameplate intentionally overlaps only the lower 4 mm of the portrait, leaving the face unobscured. Body text is 10-10.5 pt; certificate rows are 9 pt.
+
+Build only this edition into a new PDF:
+
+```powershell
+typst compile --root . --font-path fonts designs/04-flagship.typ flagship-local.pdf
+```
+
+## Earlier one-page studies
 
 ![Three prototype designs](previews/review/comparison.png)
 
@@ -20,7 +42,7 @@ Run from PowerShell:
 ./build.ps1
 ```
 
-The script writes all three PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
+The script writes all four PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
 
 ```powershell
 typst compile --root . --font-path fonts designs/01-soundings.typ soundings-local.pdf

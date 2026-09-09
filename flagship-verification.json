@@ -1,0 +1,13 @@
+{
+  "pdf": "exports/review/04-flagship-v2.pdf",
+  "pages": 2,
+  "voyages": 5,
+  "certificates": 8,
+  "total_days": 926,
+  "second_engineer_days": 379,
+  "fonts_embedded": true,
+  "text_within_page": true,
+  "portrait": "AI generated fictional candidate",
+  "ats": "Not commercially tested",
+  "compiler": "Typst 0.15.1"
+}
