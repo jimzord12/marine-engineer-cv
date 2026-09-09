@@ -23,7 +23,8 @@
   set document(title: candidate.identity.name + " | " + candidate.identity.rank + " | Marine CV", author: "Marine CV Studio")
   set text(font: theme.fonts.body, size: theme.sizes.body, fill: theme.colors.ink, lang: "en")
   set par(leading: theme.leading.initial)
-  set page(paper: layout.paper, margin: layout.opening-margin,
+  // Default white is the PDF canvas; an explicit white fill changes edge compositing.
+  set page(paper: layout.paper, fill: if theme.colors.paper == white {none} else {theme.colors.paper}, margin: layout.opening-margin,
     footer: page-footer(candidate.disclosure, candidate.copy.brand, theme, layout.footer),
     background: page-background(theme, artwork, layout))
   body

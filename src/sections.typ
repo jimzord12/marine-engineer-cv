@@ -8,7 +8,7 @@
 ]
 
 #let profile-summary(body, illustration, theme, geometry) = grid(columns: (1fr, geometry.image-width), column-gutter: geometry.gap, align: horizon,
-  [#body], [#decoration(illustration, theme, width: geometry.image-width, artifact: false)])
+  [#body], [#decoration(illustration, theme, width: geometry.image-width)])
 
 #let synopsis(totals, captions, theme, geometry) = block(fill: theme.colors.hero, width: 100%, inset: geometry.inset)[
   #set text(fill: theme.colors.on-hero)

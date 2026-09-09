@@ -6,7 +6,7 @@
   }
 ]
 
-#let portrait-frame(asset, theme) = decoration(asset, theme, artifact: false)
+#let portrait-frame(asset, theme) = decoration(asset, theme)
 #let portrait-backdrop(asset, theme) = decoration(asset, theme)
 
 #let contact-item(item, theme) = [#label(item.label, theme, color: theme.colors.metal) \ #if item.at("href", default: none) != none {link(item.href)[#item.value]} else {item.value}]
@@ -28,6 +28,9 @@
   let title = text(font: theme.fonts.display, weight: "semibold", size: theme.sizes.name)[#identity.name]
   assert(measure(title).width <= geometry.plate-width - 2 * geometry.plate-inset.x,
     message: "Name exceeds identity plate: adjust theme.sizes.name or hero.plate-width")
+  let rank = text(size: theme.sizes.rank, tracking: theme.tracking.rank, weight: "bold")[#identity.rank]
+  assert(measure(rank).width <= geometry.plate-width - 2 * geometry.plate-inset.x,
+    message: "Rank exceeds identity plate: adjust theme.sizes.rank or hero.plate-width")
   for side in ("left", "right") {
     let items = contacts.at(side, default: ())
     for item in items {

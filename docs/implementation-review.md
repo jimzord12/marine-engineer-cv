@@ -12,5 +12,16 @@ Approved plan: `superpowers/plans/2026-09-09-v11-library.md`. Execution is inlin
 | C3 composition | PASS | Public engineer entry point produces two pages with zero raster differences at 144 dpi and identical normalized text on each page. Full hidden-duration build preserves all vessel/rank coordinates and totals. Review found a scoped page-margin rule causing an extra page; moved page policy to the whole page iteration and restored header paragraph inheritance. Exact baseline then passed. |
 | D1 captain | PASS | Two-page captain compiled with unchanged theme/layout/components. Original wheel, compass ornaments and chart/bridge backgrounds use palette placeholders. Both pages inspected; no engineer wording leaks into visible text. Same fictional portrait retained deliberately. |
 | D2 silver | PASS | Silver theme changes only the theme import; same captain data/art/layout. Two pages visually reviewed and page text matches Classic exactly. Review found legacy SVG secondary colors not following themes; added explicit theme art-color mapping and reran engineer exact regression successfully. |
-| E1 boundary review | Pending | |
+| E1 boundary review | PASS | 21 reproducible compile cases plus PDF assertions pass (`tests/run.py`). Three-page fixture has 31 vessels, 10 certificates, 2 education and 3 language entries; explicit company split keeps full company totals without duplication. Duplicate allocations and overflow fail explicitly. Certificate headers repeat. Optional fields, company-only months and wrapped duration geometry tested. All decorative art tagged as artifacts. |
 | E2 docs/delivery | Pending | |
+
+## Review decisions
+
+- Kept closely related hero functions together; no separate file for every small wrapper.
+- Added `src/pagination.typ` when explicit company fragments made validation a separate responsibility. The template now only composes pages; data totals remain independent of page allocations.
+- Kept vessel rows as cell arrays owned by a shared grid. Hidden time cells reserve measured geometry but contain no duration text, including when the visible duration wraps.
+- Removed the obsolete voyage/machinery/toolkit abstractions from the active API; preserved all historical source files.
+- Layout profiles deliberately expose margins, row/company density and the final flexible education gap. No automatic font shrinking or promise of optimal pagination.
+- Added missing rank-width fit checks during hero review. Excessive names/contacts/ranks require an explicit typography or geometry adjustment.
+- Explicit white page paint initially changed raster compositing across the document. Retained the default unpainted white PDF canvas for white themes; non-white themes can set page fill. Exact v11 comparison passed again.
+- No unresolved material finding after the final E1 suite. The three primary PDFs remain two pages; the engineer still matches v11 exactly.

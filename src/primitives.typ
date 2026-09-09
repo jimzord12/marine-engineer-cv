@@ -14,6 +14,13 @@
       ("{{metal}}", theme.colors.metal), ("{{accent}}", theme.colors.accent), ("{{ink}}", theme.colors.ink))
     for (old, new) in palette { source = source.replace(old, new.to-hex()) }
     for (old, new) in theme.at("art-colors", default: (:)) { source = source.replace(old, new.to-hex()) }
+    if "opacity" in asset {
+      assert(0 <= asset.opacity and asset.opacity <= 1, message: "Artwork opacity must be between 0 and 1")
+      let root = source.match(regex("<svg[^>]*>"))
+      assert(root != none, message: "Decoration requires an SVG root")
+      source = source.replace(root.text, root.text + "<g opacity=\"" + str(asset.opacity) + "\">")
+      source = source.replace("</svg>", "</g></svg>")
+    }
     let art = image(bytes(source), format: "svg", width: if width == auto {asset.at("width", default: auto)} else {width}, height: height)
     if artifact {pdf.artifact(art)} else {art}
   }

@@ -36,7 +36,7 @@
 
 #let company-experience(company, theme, geometry, spacing, show-durations, caption, continued: false) = block(breakable: false, above: 0pt, below: spacing.company-gap)[
   #grid(columns: (geometry.date-width, 1fr), column-gutter: geometry.column-gap,
-    company-period(company.period, company-months(company), caption, theme, geometry),
+    company-period(company.period, if "display-months" in company {company.display-months} else {company-months(company)}, caption, theme, geometry),
     block(stroke: (left: 2pt + theme.colors.accent), inset: geometry.inset)[
       #text(size: theme.sizes.company, weight: "bold")[#company.name#if continued { [ (continued)] }]
       #for group in company.groups {vessel-type-group(group, show-durations, theme, geometry, spacing)}

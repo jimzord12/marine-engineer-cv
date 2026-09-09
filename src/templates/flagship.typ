@@ -6,15 +6,7 @@
 #import "../certificates.typ": certificates-section
 #import "../education.typ": education-languages-section
 #import "../page.typ": document-shell, page-header
-
-#let validate-pages(pages, companies) = {
-  let indices = pages.map(p => p.companies).flatten()
-  assert.eq(indices.sorted(), range(companies.len()), message: "Page plan must include each company once")
-  let synopses = pages.enumerate().filter(((i, p)) => p.at("synopsis", default: false))
-  assert.eq(synopses.len(), 1, message: "Page plan requires exactly one synopsis")
-  let final-experience = pages.enumerate().filter(((i, p)) => p.companies.len() > 0).last().at(0)
-  assert.eq(synopses.first().at(0), final-experience, message: "Synopsis must follow the final Experience page")
-}
+#import "../pagination.typ": validate-pages, company-fragment
 
 #let flagship(body, candidate: none, theme: none, artwork: none, layout: none, show-vessel-durations: true) = {
   assert(candidate != none and theme != none and artwork != none and layout != none,
@@ -22,7 +14,7 @@
   let d = normalize-candidate(candidate)
   validate-theme(theme)
   validate-candidate(d, show-vessel-durations)
-  validate-pages(layout.pages, d.companies)
+  validate-pages(layout.pages, d)
   document-shell(d, theme, artwork, layout)[
     #for (i, page-plan) in layout.pages.enumerate() {
       if i > 0 {pagebreak()}
@@ -35,7 +27,7 @@
         section-heading("01", d.copy.experience, theme, layout.headings,
           if i == 0 {layout.headings.opening} else {layout.headings.continuation},
           subtitle: if i == 0 {d.copy.experience-subtitle} else {d.copy.continuation})
-        experience-section(page-plan.companies.map(index => d.companies.at(index)), theme, layout.experience,
+        experience-section(page-plan.companies.map(ref => company-fragment(ref, d.companies)), theme, layout.experience,
           if i == 0 {layout.experience.opening} else {layout.experience.continuation}, show-vessel-durations, d.copy.combined)
       }
       if page-plan.at("synopsis", default: false) {synopsis(experience-totals(d.companies), d.copy, theme, layout.synopsis)}
@@ -44,6 +36,8 @@
         if layout.anchor-education {v(1fr)}
         education-languages-section(d.education, d.languages, d.copy, theme, layout)
       }
+      context assert.eq(counter(page).get().first(), i + 1,
+        message: "Content overflow on planned page " + str(i + 1) + ": split company rows or allocate another page")
     }
     #body
   ]
