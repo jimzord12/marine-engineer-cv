@@ -37,6 +37,12 @@ def main():
         return pdf
 
     check_frozen()
+    skills = compile_case('skills', 'tests/skills.typ')
+    assert verify(skills, pages=1, output=out / 'skills-check')['passed']
+    with fitz.open(skills) as doc:
+        text = ' '.join(doc[0].get_text().split())
+        for phrase in ['Professional Skills', 'Technical Skills', 'Three columns', 'Navigation', 'Plain bullet', 'Third']:
+            assert text.count(phrase) == 1, phrase
     engineer = compile_case('engineer', 'examples/engineer.typ')
     result = verify(engineer, ROOT / 'exports/review/Marine-Engineer-CV-v11.pdf', output=out / 'exact')
     assert result['passed'], result

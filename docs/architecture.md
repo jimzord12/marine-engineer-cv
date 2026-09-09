@@ -18,6 +18,8 @@
 
 ## Σύνθεση components
 
+Το προαιρετικό [Professional Skills section](skills-component.md) είναι διαθέσιμο για custom συνθέσεις, με παραμετρικές στήλες και bullets. Δεν προστίθεται αυτόματα στα ήδη κλειδωμένα templates.
+
 ```text
 flagship → document-shell
   ├─ hero
