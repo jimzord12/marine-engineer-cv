@@ -11,6 +11,6 @@ Approved plan: `superpowers/plans/2026-09-09-v11-library.md`. Execution is inlin
 | C2 content | PASS | Content gallery compiled and visually reviewed. Company/type/vessel nesting, metrics, certificate records and appendable education/languages render through focused modules. Hidden durations emit no text and leave vessel/rank coordinates exactly unchanged. Review kept cells owned by the shared grid, not independent row grids. |
 | C3 composition | PASS | Public engineer entry point produces two pages with zero raster differences at 144 dpi and identical normalized text on each page. Full hidden-duration build preserves all vessel/rank coordinates and totals. Review found a scoped page-margin rule causing an extra page; moved page policy to the whole page iteration and restored header paragraph inheritance. Exact baseline then passed. |
 | D1 captain | PASS | Two-page captain compiled with unchanged theme/layout/components. Original wheel, compass ornaments and chart/bridge backgrounds use palette placeholders. Both pages inspected; no engineer wording leaks into visible text. Same fictional portrait retained deliberately. |
-| D2 silver | Pending | |
+| D2 silver | PASS | Silver theme changes only the theme import; same captain data/art/layout. Two pages visually reviewed and page text matches Classic exactly. Review found legacy SVG secondary colors not following themes; added explicit theme art-color mapping and reran engineer exact regression successfully. |
 | E1 boundary review | Pending | |
 | E2 docs/delivery | Pending | |

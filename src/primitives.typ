@@ -13,6 +13,7 @@
       ("#c8a579", theme.colors.metal), ("#546870", theme.colors.muted),
       ("{{metal}}", theme.colors.metal), ("{{accent}}", theme.colors.accent), ("{{ink}}", theme.colors.ink))
     for (old, new) in palette { source = source.replace(old, new.to-hex()) }
+    for (old, new) in theme.at("art-colors", default: (:)) { source = source.replace(old, new.to-hex()) }
     let art = image(bytes(source), format: "svg", width: if width == auto {asset.at("width", default: auto)} else {width}, height: height)
     if artifact {pdf.artifact(art)} else {art}
   }
