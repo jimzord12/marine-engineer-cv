@@ -1,0 +1,324 @@
+{
+  "profile": "Master Mariner with a maritime background spanning tanker, bulk carrier, container and passenger fleets. International experience across six shipping companies.",
+  "certificates": [
+    [
+      "Certificate of Competency",
+      "Master / II/2",
+      "15 Jul 2024",
+      "14 Jul 2029"
+    ],
+    [
+      "Basic safety training",
+      "STCW training record",
+      "20 Aug 2024",
+      "See modules"
+    ],
+    [
+      "Advanced firefighting",
+      "Refresher record",
+      "22 Aug 2024",
+      "21 Aug 2029"
+    ],
+    [
+      "Survival craft & rescue boats",
+      "Refresher record",
+      "24 Aug 2024",
+      "23 Aug 2029"
+    ],
+    [
+      "Medical first aid",
+      "Training certificate",
+      "18 Feb 2023",
+      "Review flag rules"
+    ],
+    [
+      "Bridge resource management",
+      "Management-level training",
+      "07 Jun 2024",
+      "As required"
+    ],
+    [
+      "GMDSS General Operator",
+      "Illustrative GOC record",
+      "12 Sep 2024",
+      "Verify endorsement"
+    ],
+    [
+      "Seafarer medical",
+      "ENG1 example",
+      "01 Jun 2026",
+      "31 May 2028"
+    ]
+  ],
+  "companies": [
+    {
+      "name": "Northline Marine",
+      "period": "2022 - 2026",
+      "groups": [
+        {
+          "type": "Product tankers",
+          "ships": [
+            {
+              "id": "meridian",
+              "name": "MV Meridian",
+              "rank": "Master",
+              "months": 8
+            },
+            {
+              "id": "aurora",
+              "name": "MV Aurora",
+              "rank": "Master",
+              "months": 7
+            },
+            {
+              "id": "atlas",
+              "name": "MV Atlas",
+              "rank": "Master",
+              "months": 6
+            },
+            {
+              "id": "polaris",
+              "name": "MV Polaris",
+              "rank": "Master",
+              "months": 6
+            }
+          ]
+        },
+        {
+          "type": "Chemical tankers",
+          "ships": [
+            {
+              "id": "silver-tide",
+              "name": "MV Silver Tide",
+              "rank": "Master",
+              "months": 5
+            },
+            {
+              "id": "caspian",
+              "name": "MV Caspian",
+              "rank": "Master",
+              "months": 4
+            }
+          ]
+        }
+      ],
+      "id": "northline-marine"
+    },
+    {
+      "name": "Pelagic Shipping",
+      "period": "2018 - 2022",
+      "groups": [
+        {
+          "type": "Bulk carriers",
+          "ships": [
+            {
+              "id": "north-passage",
+              "name": "MV North Passage",
+              "rank": "Chief Officer",
+              "months": 8
+            },
+            {
+              "id": "ocean-crest",
+              "name": "MV Ocean Crest",
+              "rank": "Chief Officer",
+              "months": 7
+            },
+            {
+              "id": "pacific-star",
+              "name": "MV Pacific Star",
+              "rank": "Chief Officer",
+              "months": 6
+            },
+            {
+              "id": "iron-cape",
+              "name": "MV Iron Cape",
+              "rank": "Chief Officer",
+              "months": 5
+            }
+          ]
+        }
+      ],
+      "id": "pelagic-shipping"
+    },
+    {
+      "name": "Blue Current Fleet",
+      "period": "2015 - 2018",
+      "groups": [
+        {
+          "type": "Ro-Pax ferries",
+          "ships": [
+            {
+              "id": "solstice",
+              "name": "MV Solstice",
+              "rank": "Chief Officer",
+              "months": 6
+            },
+            {
+              "id": "horizon",
+              "name": "MV Horizon",
+              "rank": "Chief Officer",
+              "months": 6
+            },
+            {
+              "id": "aegean-dawn",
+              "name": "MV Aegean Dawn",
+              "rank": "Chief Officer",
+              "months": 5
+            }
+          ]
+        }
+      ],
+      "id": "blue-current-fleet"
+    },
+    {
+      "name": "Seabridge Navigation",
+      "period": "2012 - 2015",
+      "groups": [
+        {
+          "type": "Container vessels",
+          "ships": [
+            {
+              "id": "atlantic-bridge",
+              "name": "MV Atlantic Bridge",
+              "rank": "Chief Officer",
+              "months": 7
+            },
+            {
+              "id": "eastern-bay",
+              "name": "MV Eastern Bay",
+              "rank": "Chief Officer",
+              "months": 6
+            },
+            {
+              "id": "coral-express",
+              "name": "MV Coral Express",
+              "rank": "Chief Officer",
+              "months": 5
+            },
+            {
+              "id": "baltic-crown",
+              "name": "MV Baltic Crown",
+              "rank": "Chief Officer",
+              "months": 4
+            }
+          ]
+        }
+      ],
+      "id": "seabridge-navigation"
+    },
+    {
+      "name": "Oceanward Maritime",
+      "period": "2010 - 2012",
+      "groups": [
+        {
+          "type": "Bulk carriers",
+          "ships": [
+            {
+              "id": "ocean-pioneer",
+              "name": "MV Ocean Pioneer",
+              "rank": "Second Officer",
+              "months": 6
+            },
+            {
+              "id": "cape-victory",
+              "name": "MV Cape Victory",
+              "rank": "Second Officer",
+              "months": 5
+            },
+            {
+              "id": "western-light",
+              "name": "MV Western Light",
+              "rank": "Second Officer",
+              "months": 5
+            }
+          ]
+        }
+      ],
+      "id": "oceanward-maritime"
+    },
+    {
+      "name": "Coastal Star Lines",
+      "period": "2008 - 2010",
+      "groups": [
+        {
+          "type": "Passenger ferries",
+          "ships": [
+            {
+              "id": "island-star",
+              "name": "MV Island Star",
+              "rank": "Deck Cadet",
+              "months": 6
+            },
+            {
+              "id": "sea-pearl",
+              "name": "MV Sea Pearl",
+              "rank": "Deck Cadet",
+              "months": 8
+            },
+            {
+              "id": "summer-wind",
+              "name": "MV Summer Wind",
+              "rank": "Deck Cadet",
+              "months": 7
+            }
+          ]
+        }
+      ],
+      "id": "coastal-star-lines"
+    }
+  ],
+  "education_entries": [
+    {
+      "qualification": "Diploma in Nautical Science",
+      "institution": "Example Maritime Academy",
+      "note": "Illustrative education entry"
+    }
+  ],
+  "language_entries": [
+    {
+      "name": "Greek",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Professional working proficiency"
+    }
+  ],
+  "identity": {
+    "name": "DANIEL REED",
+    "rank": "MASTER MARINER",
+    "portrait": "/assets/fictional-engineer.png",
+    "portrait-alt": "AI-generated portrait of the fictional candidate"
+  },
+  "contacts": {
+    "left": [
+      {
+        "label": "Based in",
+        "value": "Rotterdam, Netherlands"
+      },
+      {
+        "label": "Telephone",
+        "value": "+00 000 000 000"
+      },
+      {
+        "label": "Nationality",
+        "value": "EU citizen / fictional profile"
+      }
+    ],
+    "right": [
+      {
+        "label": "Email",
+        "value": "daniel.reed@example.com",
+        "href": "mailto:daniel.reed@example.com"
+      },
+      {
+        "label": "Discipline",
+        "value": "Deck / navigation"
+      },
+      {
+        "label": "Rank",
+        "value": "Master"
+      }
+    ]
+  }
+}

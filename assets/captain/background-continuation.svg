@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123"><g stroke="{{accent}}" fill="none" opacity=".085" stroke-width="1.5">
+ <g transform="translate(765 145)"><circle r="63"/><circle r="49"/><path d="M0 -84V84 M-84 0H84 M-60 -60L60 60 M60 -60L-60 60"/><path d="M0 -55L12 -12L55 0L12 12L0 55L-12 12L-55 0L-12 -12Z"/></g>
+ <g transform="translate(-10 945) rotate(-18)"><path d="M-45 0H115V100H-45Z M-45 25H115 M-45 50H115 M-45 75H115 M-5 0V100 M35 0V100 M75 0V100"/><path d="M-15 82Q5 30 35 55T95 13" stroke-width="3" stroke-dasharray="5 6"/><circle cx="35" cy="55" r="6"/></g>
+ <g transform="translate(658 1015)"><path d="M-58 19L-39 -14H39L58 19Z M-39 -14L-24 -40H24L39 -14 M-24 -40V-56H24V-40 M-58 19V38H58V19 M-17 -14V19 M17 -14V19"/><circle cy="-25" r="6"/></g>
+ </g></svg>
