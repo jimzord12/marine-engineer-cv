@@ -1,5 +1,7 @@
 # Marine CV Component Library Implementation Plan
 
+> Superseded by `2026-09-09-v11-library.md`. The user has locked v11; this earlier voyage-based plan is retained only as history. Do not execute it.
+
 > **PAUSED — sample redesign requested.** Do not execute this plan until the company-based sample is approved and this plan is revised. See `../../sample-08-review.md`. Company/type/vessel grouping replaces the voyage-based architecture below; summary metrics and education sections also changed.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking. Execute inline with self-review checkpoints; delegation is not required.
