@@ -2,7 +2,13 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
-## Current sample / synopsis after experience — v10, awaiting approval
+## Current sample / page-two balance — v11, awaiting approval
+
+[Open Marine Engineer CV v11](exports/review/Marine-Engineer-CV-v11.pdf)
+
+Education & languages sits lower, with flexible space above it. Certificates regain more space around their heading. Page two uses an 11 mm bottom margin; page one remains pixel-identical to v10. Content and font sizes are unchanged, and the CV remains two pages. Source: `designs/11-flagship-balance.typ`. Evidence: `balance-verification.json`.
+
+## Previous sample / synopsis after experience — v10
 
 [Open Marine Engineer CV v10](exports/review/Marine-Engineer-CV-v10.pdf)
 
