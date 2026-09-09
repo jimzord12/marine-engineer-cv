@@ -1,0 +1,71 @@
+# Marine Engineer CV Studio
+
+Three distinct, editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+
+![Three prototype designs](previews/review/comparison.png)
+
+| Prototype | Design direction | PDF |
+|---|---|---|
+| Soundings | Deep petrol sidebar, compass geometry, condensed name. The strongest nautical identity. | [View PDF](exports/review/01-soundings.pdf) |
+| Engine Room | Graphite masthead, copper accents, original shaft-line illustration, numbered sections. The most explicit mechanical-engineering direction. | [View PDF](exports/review/02-engine-room.pdf) |
+| Horizon | Editorial serif name, teal detailing and an original hull-line illustration. The most spacious direction. | [View PDF](exports/review/03-horizon.pdf) |
+
+## Local setup
+
+Install Typst on Windows: `winget install --id Typst.Typst --exact`. Reopen the terminal and check `typst --version`. These prototypes were built with Typst 0.15.1. No Python, Node, RenderCV, icon fonts, or paid services are required to build them. All required fonts are bundled under their OFL licences.
+
+Run from PowerShell:
+
+```powershell
+./build.ps1
+```
+
+The script writes all three PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
+
+```powershell
+typst compile --root . --font-path fonts designs/01-soundings.typ soundings-local.pdf
+```
+
+For continuous editing, choose a disposable output filename and run:
+
+```powershell
+typst watch --root . --font-path fonts designs/03-horizon.typ horizon-preview.pdf
+```
+
+Watch mode intentionally updates its chosen preview PDF every time you save. `main.typ` selects Soundings by default.
+
+## Project structure
+
+- `content/example.json`: the single source of fictional CV content used by all three designs.
+- `designs/shared.typ`: reusable entry and section formatting.
+- `designs/01-soundings.typ`, `02-engine-room.typ`, `03-horizon.typ`: distinct page compositions.
+- `assets/`: original SVG illustrations, ornamental and not scale drawings.
+- `fonts/` and `licenses/`: bundled fonts and all attribution/licence information.
+- `exports/review/`: reviewed one-page PDF prototypes.
+- `previews/review/`: page images for comparison.
+- `verification.json`: build and document inspection results.
+
+## Editing and design choices
+
+Edit the data file to change experience, qualifications and contact details. Colours, proportions and typography live in the design files. The fictional qualifications deliberately avoid certificate numbers and must be replaced with accurate details before any real application. Employment dates are not a claim of actual time at sea; add verified sea-service dates and totals for a real candidate.
+
+The shared experience/category helper pattern is adapted from Cobalt CV 0.1.0 by Vikram Saraph (MIT). Soundings develops its sidebar/main-column composition. Neat CV supplied visual inspiration for flexible sidebar placement; no Neat CV source is incorporated. The mechanical and maritime artwork, three new compositions and data separation are original work for this project.
+
+These are one-page design studies for the supplied content. Soundings has a fixed-height sidebar and needs deliberate pagination for a longer CV; the other designs also need review after content changes. Neither photographs nor skill-rating bars are needed for these prototypes.
+
+## Parsing and accessibility
+
+All three reviewed PDFs contain extractable text and embedded fonts. Names, contact details, engineering roles and qualifications were checked. Text bounds stay inside the page. Every final page was visually inspected. This is not certification by a commercial ATS. Sidebar reading order and multi-column qualifications should be checked against the actual application portal. Decorative drawings do not carry any essential CV information.
+
+For a conservative portal submission, Engine Room has the clearest full-width experience flow. All designs use visible content only, with no hidden keywords. The body is 10 pt (sidebar 9.5 pt); a production CV may benefit from 10.5-11 pt and a second page depending on content.
+
+Keep real personal data in a separate private copy or a `private/` directory (ignored here). Do not commit certificate scans, passport details or private references to this public repository.
+
+## Sources and licences
+
+- [Cobalt CV 0.1.0](https://typst.app/universe/package/cobalt-cv/), MIT; preserved notice in `licenses/cobalt-cv-MIT.txt`.
+- [Neat CV](https://typst.app/universe/package/neat-cv/), visual reference only.
+- [Source Sans 3](https://github.com/google/fonts/tree/main/ofl/sourcesans3), [Barlow Condensed](https://github.com/google/fonts/tree/main/ofl/barlowcondensed), [Cormorant Garamond](https://github.com/google/fonts/tree/main/ofl/cormorantgaramond), SIL Open Font License; each notice preserved in `licenses/`.
+- [Typst CLI](https://github.com/typst/typst).
+
+Project code and original illustrations are MIT licensed. Font licences remain separate.

@@ -1,0 +1,9 @@
+private/
+exports/local/
+.DS_Store
+builds/
+/*.pdf
+/exports/*.pdf
+/exports/prototypes/
+/previews/*.png
+/previews/final/
