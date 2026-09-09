@@ -2,7 +2,15 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
-## Current sample / extended experience — awaiting approval
+## Current sample / synopsis after experience — v10, awaiting approval
+
+[Open Marine Engineer CV v10](exports/review/Marine-Engineer-CV-v10.pdf)
+
+The synopsis now concludes Experience on page two, immediately before Certificates. All candidate content and typography are preserved from v09. Continuation row/company spacing and page-two heading gaps are slightly tighter to retain two pages. Source: `designs/10-flagship-synopsis.typ`. Verification: `synopsis-verification.json`.
+
+PDF naming convention from this revision: `Marine-Engineer-CV-vNN.pdf`. Existing historical PDFs retain their names. Component extraction still awaits final sample approval.
+
+## Previous sample / extended experience
 
 [Open the extended two-page sample](exports/review/09-flagship-extended.pdf)
 
