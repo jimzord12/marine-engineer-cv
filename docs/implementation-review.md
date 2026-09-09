@@ -6,7 +6,7 @@ Approved plan: `superpowers/plans/2026-09-09-v11-library.md`. Execution is inlin
 |---|---|---|
 | A1 baseline | PASS | Fresh compile equals v11 at 144 dpi and normalized text on both pages. Deliberate added red text rejected for both raster/text. Frozen SHA-256 manifest includes historical assets/data/designs/PDFs/fonts. Verifier creates new evidence directories and detects page-count/font/bounds errors. |
 | B1 configuration | PASS | Theme, artwork slots and geometry separated. Assertion fixture compiles with no visible content. Review retained grouped modules and all frozen values. Removed accidentally tracked Python bytecode from the index only (local file preserved) and ignored runtime caches. |
-| B2 data | Pending | |
+| B2 data | PASS | Red test first (missing module), then valid 0/1/11/12/13/138 duration cases, frozen 138/23/6 totals, repeated vessel deduplication and company-only months. Missing visible months, inconsistent totals and negative months rejected with specific diagnostics. Reviewed separation of normalization, validation and pure totals; frozen JSON untouched. |
 | C1 primitives/hero | Pending | |
 | C2 content | Pending | |
 | C3 composition | Pending | |
