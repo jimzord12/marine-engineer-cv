@@ -1,6 +1,22 @@
 # Marine Engineer CV Studio
 
-Five editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+
+## Current revision / spacing refinement
+
+[Open the refined two-page PDF](exports/review/06-flagship-spacing.pdf)
+
+![Spacing refinement](previews/review/06-spacing-spread.png)
+
+This pass changes body spacing only. A shared spacing scale replaces accumulated paragraph gaps; each voyage uses the same metadata spacing, timeline padding and separation. Certificate rows have 3 mm horizontal and 2.2 mm vertical padding, with 9.5 pt text. Education and languages share a fixed label column. Page margins, the portrait hero, illustrations, wording and colour palette remain unchanged.
+
+The first 83 mm of page one were rendered and compared against Mechanical v2: pixel-identical. Whitespace-normalized extracted text also matches the previous edition exactly. Both pages were inspected and checked for embedded fonts and text bounds. The record is in `spacing-verification.json`.
+
+Edit `designs/06-flagship-spacing.typ`; shared body distances are defined in its `space` dictionary. Earlier design files and reviewed PDFs remain available for comparison.
+
+```powershell
+typst compile --root . --font-path fonts designs/06-flagship-spacing.typ spacing-local.pdf
+```
 
 ## Flagship Mechanical / SVG detail study
 
@@ -56,7 +72,7 @@ Run from PowerShell:
 ./build.ps1
 ```
 
-The script writes all five PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
+The script writes all six numbered designs/revisions to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
 
 ```powershell
 typst compile --root . --font-path fonts designs/01-soundings.typ soundings-local.pdf
