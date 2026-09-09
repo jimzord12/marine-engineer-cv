@@ -1,0 +1,22 @@
+{
+  "typst": "0.15.1",
+  "renderer": "1.28.2",
+  "engineer_reference": "Marine-Engineer-CV-v11.pdf",
+  "engineer_pixel_identical_144dpi": true,
+  "engineer_text_identical_per_page": true,
+  "compile_cases_passed": 21,
+  "fixed_columns_when_durations_hidden": true,
+  "three_page_fixture": {
+    "vessels": 31,
+    "service_months": 162,
+    "certificates": 10,
+    "education_entries": 2,
+    "languages": 3
+  },
+  "all_frozen_hashes_preserved": true,
+  "pdf_sha256": {
+    "Marine-Engineer-CV-v12.pdf": "a52e7e8cfc7b71130b171247369f4624fe58ef5b4120a15df64f1b9eb186d049",
+    "Marine-Captain-CV-Classic-v01.pdf": "54af20ef4af12a8844db40083d09bd797a3c00b8e58d010aab4d8c2153854d21",
+    "Marine-Captain-CV-Silver-v01.pdf": "bbbe9b23bde4f63a1a25cc9ce0d52f774fee52ace631568700ce891c81d93e99"
+  }
+}

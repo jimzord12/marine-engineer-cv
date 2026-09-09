@@ -13,7 +13,7 @@ Approved plan: `superpowers/plans/2026-09-09-v11-library.md`. Execution is inlin
 | D1 captain | PASS | Two-page captain compiled with unchanged theme/layout/components. Original wheel, compass ornaments and chart/bridge backgrounds use palette placeholders. Both pages inspected; no engineer wording leaks into visible text. Same fictional portrait retained deliberately. |
 | D2 silver | PASS | Silver theme changes only the theme import; same captain data/art/layout. Two pages visually reviewed and page text matches Classic exactly. Review found legacy SVG secondary colors not following themes; added explicit theme art-color mapping and reran engineer exact regression successfully. |
 | E1 boundary review | PASS | 21 reproducible compile cases plus PDF assertions pass (`tests/run.py`). Three-page fixture has 31 vessels, 10 certificates, 2 education and 3 language entries; explicit company split keeps full company totals without duplication. Duplicate allocations and overflow fail explicitly. Certificate headers repeat. Optional fields, company-only months and wrapped duration geometry tested. All decorative art tagged as artifacts. |
-| E2 docs/delivery | Pending | |
+| E2 docs/delivery | PASS | Safe three-example build, active main entry, editable native engineer data, Greek architecture/customization guides and versioned PDFs delivered. Main and engineer release both exactly match v11. Final 21-case suite passes; existing output directory correctly refused. Release PDFs match tested renders and pass font/bounds checks. All frozen hashes preserved. |
 
 ## Review decisions
 

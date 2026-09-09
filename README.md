@@ -2,13 +2,31 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
+## Active component library
+
+The approved v11 design is now composed from reusable Typst functions. **Engineer v12 is pixel-identical to v11 on both pages.** The captain examples use the same library and page plan, with independent artwork and themes.
+
+| Example | PDF |
+|---|---|
+| Engineer / Flagship | [Marine Engineer CV v12](exports/review/Marine-Engineer-CV-v12.pdf) |
+| Captain / Classic | [Marine Captain Classic v01](exports/review/Marine-Captain-CV-Classic-v01.pdf) |
+| Captain / Silver | [Marine Captain Silver v01](exports/review/Marine-Captain-CV-Silver-v01.pdf) |
+
+```powershell
+./scripts/build-library.ps1
+```
+
+Start at `main.typ` or one of `examples/`. Edit `content/engineer-example.json` or `content/captain-example.json`, choose a `themes/` file and a `roles/` artwork pack. The `layouts/` profile controls margins, spacing and explicit page allocation. `-HideVesselDurations` hides all vessel times without moving the vessel/rank columns.
+
+Greek guides: [Customization](docs/customization.md), [Architecture](docs/architecture.md). Development checks: `python tests/run.py`. [Implementation review](docs/implementation-review.md) records each task's review. Historical prototypes below are preserved references, not the active library entry point.
+
 ## Approved reference / page-two balance — v11, locked
 
 [Open Marine Engineer CV v11](exports/review/Marine-Engineer-CV-v11.pdf)
 
 Education & languages sits lower, with flexible space above it. Certificates regain more space around their heading. Page two uses an 11 mm bottom margin; page one remains pixel-identical to v10. Content and font sizes are unchanged, and the CV remains two pages. Source: `designs/11-flagship-balance.typ`. Evidence: `balance-verification.json`.
 
-The user approved v11 as the frozen reference. Component implementation awaits approval of the revised [v11 library plan](docs/superpowers/plans/2026-09-09-v11-library.md), which supersedes the original architecture plan.
+The user approved v11 as the frozen reference. The approved [v11 library plan](docs/superpowers/plans/2026-09-09-v11-library.md) supersedes the original architecture plan; its implementation is delivered through the active library above.
 
 ## Previous sample / synopsis after experience — v10
 
