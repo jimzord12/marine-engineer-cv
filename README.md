@@ -2,7 +2,17 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
-## Current sample / company-based experience — awaiting approval
+## Current sample / extended experience — awaiting approval
+
+[Open the extended two-page sample](exports/review/09-flagship-extended.pdf)
+
+Revision 09 uses a longer fictional history: 23 vessels across six companies, with experience ending around the middle of page two. Company durations are smaller; summary units are smaller than the numbers, with a consistent 3 mm value-to-label gap across all three metrics. Edit `designs/09-flagship-extended.typ` and `content/extended-company-example.json`.
+
+Vessel durations are controlled globally: pass `--input vessel-durations=false` when compiling to hide all vessel durations and align every rank to the right. Stored service months still determine company and career totals. Default: show all vessel durations.
+
+The component refactor remains paused pending sample approval.
+
+## Previous sample / company-based experience
 
 [Open the new two-page sample](exports/review/08-flagship-company.pdf)
 
