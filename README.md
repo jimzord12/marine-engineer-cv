@@ -2,7 +2,21 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
-## Current revision / spacing refinement
+## Current revision / hero refinement
+
+[Open the latest two-page PDF](exports/review/07-flagship-hero.pdf)
+
+![Hero refinement](previews/review/07-hero-spread.png)
+
+Longer combination spanners use refined open jaws, recessed handles and twelve-point ring ends. Mirrored shaft-coupling/flange details flank the nameplate. Contact blocks are raised to align visually with the top of the gold portrait ring. The page-one body below the hero and all of page two are pixel-identical to revision 06; the extracted text is unchanged. See `hero-verification.json`.
+
+The three new SVGs are original project artwork under the project MIT licence. Edit `designs/07-flagship-hero.typ` for the latest edition.
+
+```powershell
+typst compile --root . --font-path fonts designs/07-flagship-hero.typ hero-local.pdf
+```
+
+## Previous revision / spacing refinement
 
 [Open the refined two-page PDF](exports/review/06-flagship-spacing.pdf)
 
@@ -72,7 +86,7 @@ Run from PowerShell:
 ./build.ps1
 ```
 
-The script writes all six numbered designs/revisions to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
+The script writes all seven numbered designs/revisions to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
 
 ```powershell
 typst compile --root . --font-path fonts designs/01-soundings.typ soundings-local.pdf
