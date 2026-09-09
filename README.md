@@ -10,7 +10,7 @@ Five editable Typst resume prototypes for marine and mechanical engineers. All n
 
 This edition adds original crossed combination spanners behind the circular portrait, miniature slotted screw-head list markers, and sparse piston, nut, bolt and propeller outlines around the page edges. The background uses 8.5% opacity rather than raster blur, keeping the PDF sharp and lightweight in its vector detail. Some edge ornaments are intentionally cropped by the page. Text and data remain live Typst content. All new decorative assets and list-marker images are marked as PDF artifacts so they do not add meaningless descriptions to the reading structure. This is not an ATS certification.
 
-The five new SVG assets are original project artwork and use the project MIT licence. Edit `designs/05-flagship-mechanical.typ` to tune their size and placement. The content and synthetic portrait are shared with Flagship. The previous editions remain available for comparison.
+The four new SVG files are original project artwork and use the project MIT licence. Edit `designs/05-flagship-mechanical.typ` to tune their size and placement. The content and synthetic portrait are shared with Flagship. The previous editions remain available for comparison.
 
 ```powershell
 typst compile --root . --font-path fonts designs/05-flagship-mechanical.typ mechanical-local.pdf
