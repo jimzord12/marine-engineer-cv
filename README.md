@@ -1,6 +1,20 @@
 # Marine Engineer CV Studio
 
-Four editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+Five editable Typst resume prototypes for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
+
+## Flagship Mechanical / SVG detail study
+
+[Open the latest two-page PDF](exports/review/05-flagship-mechanical-v2.pdf)
+
+![Mechanical edition](previews/review/05-mechanical-v2-spread.png)
+
+This edition adds original crossed combination spanners behind the circular portrait, miniature slotted screw-head list markers, and sparse piston, nut, bolt and propeller outlines around the page edges. The background uses 8.5% opacity rather than raster blur, keeping the PDF sharp and lightweight in its vector detail. Some edge ornaments are intentionally cropped by the page. Text and data remain live Typst content. All new decorative assets and list-marker images are marked as PDF artifacts so they do not add meaningless descriptions to the reading structure. This is not an ATS certification.
+
+The five new SVG assets are original project artwork and use the project MIT licence. Edit `designs/05-flagship-mechanical.typ` to tune their size and placement. The content and synthetic portrait are shared with Flagship. The previous editions remain available for comparison.
+
+```powershell
+typst compile --root . --font-path fonts designs/05-flagship-mechanical.typ mechanical-local.pdf
+```
 
 ## Flagship / two-page portrait edition
 
@@ -42,7 +56,7 @@ Run from PowerShell:
 ./build.ps1
 ```
 
-The script writes all four PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
+The script writes all five PDFs to a new timestamped `builds/` directory and refuses to overwrite an existing output directory. If local PowerShell policy prevents running scripts, compile directly to a new filename:
 
 ```powershell
 typst compile --root . --font-path fonts designs/01-soundings.typ soundings-local.pdf

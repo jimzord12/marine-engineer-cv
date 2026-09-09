@@ -8,3 +8,6 @@ builds/
 /previews/*.png
 /previews/final/
 /previews/flagship-draft/
+/previews/mechanical-draft/
+/exports/review/05-flagship-mechanical.pdf
+/previews/review/05-mechanical-page-*.png

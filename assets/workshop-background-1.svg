@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123"><defs>
+<g id="nut"><path d="M0 -30L26 -15V15L0 30L-26 15V-15Z"/><circle r="15"/><circle r="10"/></g>
+<g id="piston"><rect x="-28" y="-52" width="56" height="47" rx="4"/><path d="M-28 -42H28M-28 -33H28M-28 -24H28M-19 -5L-12 13H12L19 -5M-7 13V62M7 13V62"/><circle cy="-13" r="7"/><circle cy="76" r="18"/><circle cy="76" r="10"/></g>
+<g id="bolt"><path d="M-24 -45H24V-30H8V45H-8V-30H-24Z M-8 -15H8M-8 -5H8M-8 5H8M-8 15H8M-8 25H8M-8 35H8"/></g>
+<g id="propeller"><circle r="9"/><path d="M-7 -7C-36 -53 26 -62 19 -33L7 -7M8 -3C62 -5 39 52 17 31L3 8M-3 8C-25 58 -64 10 -34 4L-8 -3"/></g>
+</defs><g fill="none" stroke="#47747a" stroke-width="1.3" opacity=".085"><use href="#piston" transform="translate(771 364) rotate(-27) scale(1.4)"/><use href="#nut" transform="translate(35 768) rotate(16) scale(.9)"/><use href="#propeller" transform="translate(666 1008) rotate(-18) scale(1.1)"/><use href="#bolt" transform="translate(111 997) rotate(43) scale(.8)"/></g></svg>
