@@ -1,0 +1,28 @@
+// Explicit composition policy; these settings are safe places for the final visual touch.
+#let layout = (
+  paper: "a4", width: 210mm, height: 297mm,
+  opening-margin: (x: 16mm, top: 12mm, bottom: 15mm),
+  continuation-margin: (x: 16mm, top: 12mm, bottom: 11mm),
+  space: (xs: 1.5mm, sm: 3mm, md: 5mm, lg: 7mm, xl: 9mm),
+  hero: (height: 77mm, band-height: 83mm, portrait-size: 46mm, portrait-y: 3mm,
+    contacts-width: 54mm, contacts-y: -2mm, contacts-gap: 4mm,
+    plate-width: 100mm, plate-y: 45mm, plate-inset: (x: 5mm, y: 3mm), plate-gap: 2mm),
+  experience: (date-width: 31mm, column-gap: 5mm, rank-width: 31mm, duration-width: 28mm,
+    cell-gap: 2mm, period-gap: 2mm, inset: (left: 5mm, top: 0.5mm, bottom: 1mm),
+    group-gap: 3mm, opening: (company-gap: 8mm, row-gap: 3.5mm),
+    continuation: (company-gap: 4mm, row-gap: 2.5mm)),
+  headings: (number-width: 12mm, gap: 1.5mm, opening: (above: 7mm, below: 5mm),
+    continuation: (above: 5mm, below: 3mm), certificates: (above: 7mm, below: 5mm),
+    education: (above: 7mm, below: 4mm)),
+  profile: (image-width: 48mm, gap: 7mm),
+  synopsis: (columns: (1.4fr, 1fr, 1fr), column-gap: 5mm, gap: 3mm, inset: (x: 7mm, y: 5mm)),
+  certificates: (columns: (1.25fr, 1.15fr, 0.65fr, 0.8fr), inset: (x: 3mm, y: 2.2mm)),
+  education: (columns: (1.25fr, 1fr), gap: 9mm, heading-gap: 4mm,
+    entry-gap: 5mm, entry-inset: (left: 4mm), line-gap: 2.5mm,
+    language-gap: 4mm, language-inset: 3mm, language-line-gap: 1.5mm),
+  footer: (gap: 2pt, page-gap: 6pt),
+  header: (gap: 1mm, rule-gap: 3mm),
+  // Company indices; optional row ranges are supported by the composition layer.
+  pages: ((companies: (0, 1, 2)), (companies: (3, 4, 5), synopsis: true, certificates: true, education: true)),
+  anchor-education: true,
+)

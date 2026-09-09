@@ -1,4 +1,6 @@
 private/
+__pycache__/
+*.pyc
 exports/local/
 .DS_Store
 builds/
