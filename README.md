@@ -2,7 +2,15 @@
 
 Editable Typst resume prototypes and refinements for marine and mechanical engineers. All names, employers, service histories and qualifications are fictional demonstration content. This is a public template repository, not a real candidate profile.
 
-## Current revision / hero refinement
+## Current sample / company-based experience — awaiting approval
+
+[Open the new two-page sample](exports/review/08-flagship-company.pdf)
+
+Experience is grouped by company, vessel type and vessel. Durations use years and months; the summary shows total experience, unique vessels and companies. The hero now shows Email, Discipline and Rank. Education & languages replaces Engineering toolkit. Certificates keep their original content and styling.
+
+Edit `designs/08-flagship-company.typ` and `content/company-example.json`. This is a new fictional dataset, not a conversion of the previous day-based history. See `docs/sample-08-review.md` for details. Component extraction is paused until this revised design is approved.
+
+## Previously approved revision / hero refinement
 
 [Open the latest two-page PDF](exports/review/07-flagship-hero.pdf)
 
