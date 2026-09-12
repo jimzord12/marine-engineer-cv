@@ -1,4 +1,4 @@
-#let d = json("../content/extended-company-example.json")
+#let d = json("content/extended-company-example.json")
 // All vessel durations are shown or hidden together.
 #let show-vessel-durations = sys.inputs.at("vessel-durations", default: "true") == "true"
 #let navy = rgb("102f3a")

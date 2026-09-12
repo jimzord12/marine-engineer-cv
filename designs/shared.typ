@@ -1,6 +1,6 @@
 // Entry hierarchy and category helpers adapted from cobalt-cv 0.1.0 (MIT).
 // Layouts and illustration assets are original to this project.
-#let cv = json("../content/example.json")
+#let cv = json("content/example.json")
 #let ink = rgb("172c35")
 #let muted = rgb("53666d")
 #let base(body) = {

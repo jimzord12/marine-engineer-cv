@@ -1,0 +1,80 @@
+# Conventions
+
+How code, documents and commits are written here. Read before writing any of
+them. These evolve; the rules that do not are in `constitution.md`.
+
+## Typst code
+
+- **Small functions that return content.** A component takes the data it
+  renders, the `theme`, and the geometry slice it needs, in that order.
+  Optional behaviour goes in named arguments with defaults.
+- **Parent owns outer spacing, child owns internal layout.** Never add an
+  outer `v()` inside a component. Never reach into `layout` for a key that
+  belongs to a sibling.
+- **Tokens in themes, geometry in layouts, pictures in artwork.** A number
+  with a unit inside `src/` is a smell unless it is a structural constant
+  such as a 2pt rule.
+- **Assert with a fix in the message.** `assert(..., message: "Name exceeds
+  identity plate: adjust theme.sizes.name or hero.plate-width")`. The reader
+  should not need the source to know what to change.
+- **No role branches.** Engineer versus captain is data and artwork.
+- **Related pieces stay together.** Hero and its five helpers are one file.
+  A new file is justified by a new responsibility, not by line count.
+- **Paths from the project root** for assets: `/assets/...`. Compile with
+  `--root .`.
+- **Naming:** kebab-case for functions, keys and files. Themes and artwork
+  packs are named after what they look like, not after a revision number.
+  Layouts carry the reference they reproduce, `flagship-v11`.
+- **Comments** explain a decision or a trap, never restate the code. One line
+  at the top of a file says what the file owns.
+
+## Candidate JSON
+
+- Nested schema only: `identity`, `contacts`, `companies`, `certificates`,
+  `education_entries`, `language_entries`, optional `profile`, `disclosure`,
+  `copy`. Validate against `schema/candidate.schema.json`.
+- Stable ids for companies and vessels. Whole service months.
+- Display text is display text. Never encode data in a label.
+
+## Tests
+
+- A test exercises the real compiler and the real PDF. No mocks.
+- A fixture under `tests/fixtures/` is a Typst file with `sys.inputs` cases.
+  The Python runner selects cases and asserts on the output PDF.
+- A test that would pass with the feature deleted is not written.
+- Negative cases assert on the error message text.
+- Prefer one compile case that covers a path over several that cover a mock.
+
+## Documents
+
+- English. Plain language. Lead with the answer.
+- One concept per file under `docs/reference/`. First line says when to read
+  it. Under about 100 lines.
+- Anything with a shape (JSON, dictionary, command) is a code block with a
+  one-line brief above it.
+- Decisions go in `docs/decisions/NNNN-title.md` using the template in
+  `docs/decisions/README.md`. History goes in `docs/history.md`. Neither is
+  rewritten later; add a new entry.
+- No emojis.
+
+## Commits
+
+Conventional Commits, imperative, under 72 characters on the first line:
+
+```text
+feat: add chief engineer artwork pack
+fix: keep rank column fixed when a duration wraps
+refactor: move page-plan validation into pagination.typ
+docs: record decision to freeze v11
+test: cover company split across three pages
+chore: bump pinned Typst version
+```
+
+Body explains why and names the evidence folder when a render or suite run
+backs the change.
+
+## Versioning of deliverables
+
+Rendered PDFs are named `Marine-<Role>-CV-<Variant>-vNN.pdf`. A new render
+with visible changes gets a new number and a new file. Old files are removed
+in the same commit unless they are a frozen reference.

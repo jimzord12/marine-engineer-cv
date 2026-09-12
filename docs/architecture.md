@@ -1,67 +1,96 @@
-# Η βιβλιοθήκη Marine CV
+# Architecture
 
-Το ενεργό entry point είναι το `lib.typ`. Το `main.typ` ανοίγει το engineer παράδειγμα. Η αναφορά `designs/11-flagship-balance.typ` και το PDF v11 είναι κλειδωμένα: δεν τα χρησιμοποιούμε ως χώρο πειραματισμού.
+Read this before changing any module under `src/`.
 
-Η βιβλιοθήκη αποτελείται από μικρές Typst functions που παράγουν περιεχόμενο. Δεν απαιτεί React, εξωτερικό framework ή online υπηρεσία.
+## The one-paragraph version
 
-## Πέντε ανεξάρτητα inputs
+`examples/engineer.typ` loads a candidate JSON and passes it, together with a
+theme, an artwork pack and a layout profile, to `flagship` in
+`src/templates/flagship.typ`. The template normalises and validates the data,
+validates the page plan, then walks the plan page by page, calling section
+functions that return Typst content. Section functions never read files and
+never branch on the candidate's role. Everything visual comes from the theme,
+everything geometric from the layout, every picture from the artwork pack.
 
-| Input | Αρχείο / ρόλος |
-|---|---|
-| Candidate | `content/engineer-example.json` ή `content/captain-example.json`: πραγματικά δεδομένα, labels και εμφανιζόμενο κείμενο |
-| Theme | `themes/flagship.typ`, `themes/silver-bridge.typ`: χρώματα, fonts, μεγέθη, tracking, leading και αποχρώσεις SVG |
-| Artwork | `roles/engineer.typ`, `roles/captain.typ`: SVG ανά θέση και μικρές διορθώσεις width/x/y/opacity |
-| Layout | `layouts/flagship-v11.typ`: margins, hero geometry, gaps, πυκνότητα εταιρειών/γραμμών, page allocations |
-| Display option | `show-vessel-durations`: εμφανίζει ή αποκρύπτει όλους τους χρόνους πλοίων, χωρίς αλλαγή στηλών |
+## The five inputs
 
-Το `flagship` δέχεται αυτά τα inputs, ελέγχει τα δεδομένα και συνθέτει το έγγραφο. Τα παιδιά δεν διαβάζουν JSON και δεν έχουν διακλαδώσεις ανά επαγγελματικό ρόλο.
+| Input | File | Owns |
+|---|---|---|
+| Candidate | `content/*.json` | Facts and display text: identity, contacts, companies, vessels, certificates, education, languages, optional copy overrides |
+| Theme | `themes/*.typ` | Colours, fonts, sizes, tracking, leading, and a map from legacy SVG hex colours to theme colours |
+| Artwork | `artwork/*.typ` | Which SVG fills each named slot, with optional width, x, y and opacity |
+| Layout | `layouts/*.typ` | Margins, hero geometry, column widths, gaps, spacing scale, page plan, `anchor-education` |
+| Display switch | `show-vessel-durations` on `flagship` | Show or hide every vessel duration at once without moving columns |
 
-## Σύνθεση components
+The template is the only place that sees all five. Children receive only the
+slice they need, so a hero function gets `layout.hero`, not `layout`.
 
-Το προαιρετικό [Professional Skills section](skills-component.md) είναι διαθέσιμο για custom συνθέσεις, με παραμετρικές στήλες και bullets. Δεν προστίθεται αυτόματα στα ήδη κλειδωμένα templates.
+## Module map
+
+```text
+lib.typ                     public exports, no side effects
+src/
+  data.typ                  normalise raw JSON, validate, pure totals, duration parts
+  theme.typ                 validate-theme: required colours and fonts
+  primitives.typ            label, rule, decoration (SVG recolour), duration, metric
+  hero.typ                  portrait, frame, backdrop, contact groups, identity plate, hero
+  experience.typ            company-period, vessel-row, vessel-type-group, company-experience, experience-section
+  sections.typ              section-heading, profile-summary, synopsis
+  certificates.typ          certificate-table, certificates-section
+  education.typ             education-entry, language-entry, education-languages-section
+  skills.typ                optional skills-section with themed bullets (not in the locked template)
+  page.typ                  page-header, page-footer, page-background, document-shell
+  pagination.typ            validate-pages, company-fragment
+  templates/flagship.typ    the composition: page loop, section order, overflow check
+```
+
+## Composition tree
 
 ```text
 flagship → document-shell
-  ├─ hero
-  │   ├─ portrait-backdrop + portrait-frame + portrait
-  │   ├─ contact-group → contact-item → label
-  │   └─ identity-plate + decorations
-  ├─ profile-summary
-  ├─ section-heading + experience-section
-  │   └─ company-experience
-  │       ├─ company-period → duration
-  │       └─ vessel-type-group → vessel-row cells
-  ├─ synopsis → metric + duration-value
-  ├─ certificates-section → certificate-table
-  └─ education-languages-section
-      ├─ education-entry
-      └─ language-entry
+  page 1: hero → profile-summary → section-heading + experience-section
+  page n: page-header → section-heading + experience-section
+  last experience page: synopsis
+  then: certificates-section, [v(1fr) if anchor-education], education-languages-section
 ```
 
-PageHeader/PageFooter/PageBackground βρίσκονται στο `src/page.typ`. Η καθαρή λογική δεδομένων στο `src/data.typ`, η κατανομή εταιρειών σε σελίδες στο `src/pagination.typ`. Τα συγγενικά components μένουν στο ίδιο μικρό module.
+## Who owns spacing
 
-## Ποιος ορίζει τις αποστάσεις
+The parent owns outer gaps. The child owns its internal layout using its
+geometry slice. Opening versus continuation spacing is chosen by the template
+per page. Education does not decide to sit low on the page; the template's
+`v(1fr)` under `anchor-education` does.
 
-Ο γονέας ορίζει τα εξωτερικά κενά. Το παιδί ορίζει την εσωτερική διάταξη χρησιμοποιώντας το layout input του. Η επιλογή opening/continuation spacing γίνεται στη σύνθεση σελίδας. Το Education section δεν αποφασίζει μόνο του να κατέβει χαμηλά: αυτό γίνεται από το `anchor-education` και το ελαστικό κενό του template.
+Vessel rows return grid cells, not their own grid, so every row in a group
+shares the parent's column tracks. When durations are hidden the third column
+keeps its measured width and height but emits no text, so vessel and rank
+never move.
 
-Στις γραμμές πλοίων, ο γονέας έχει ένα κοινό grid τριών στηλών. Το VesselRow επιστρέφει τα cells. Όταν κρύβονται οι χρόνοι, η τρίτη στήλη παραμένει γεωμετρικά παρούσα, χωρίς κείμενο στο PDF. Δεν μετακινείται ο βαθμός. Όταν είναι διαθέσιμος ο αναλυτικός χρόνος, μετριέται και το ύψος του, ώστε ακόμη και ένας χρόνος που αναδιπλώνεται να μη μετακινεί τις επόμενες γραμμές.
+## Data rules
 
-## Δεδομένα και σύνοψη
+- Months are service months, not calendar differences. Company `period` is
+  display text only.
+- Each company has a unique id. Each vessel has a stable id. The same vessel
+  under two ranks or companies counts once in the vessel total; its months
+  add up.
+- If per-vessel months are unknown, hide durations and give the company a
+  `service-months` total. If both are given, they must agree.
+- Totals are computed once from the full candidate, never from what a page
+  happens to show.
 
-Οι μήνες είναι χρόνος υπηρεσίας, όχι διαφορά ημερολογιακών περιόδων. Κάθε εταιρεία έχει μοναδικό ID και κάθε πλοίο σταθερό ID. Ίδιο πλοίο σε δύο rows διαφορετικού βαθμού ή εταιρείας μετρά μία φορά στο πλήθος πλοίων, ενώ οι μήνες προστίθενται.
+## Pagination
 
-Αν δεν υπάρχουν χρόνοι ανά πλοίο, το hidden mode δέχεται `service-months` στην εταιρεία. Δεν μετατρέπει άγνωστο χρόνο σε μηδέν. Αν υπάρχουν όλοι οι αναλυτικοί μήνες και company total, απαιτεί να συμφωνούν. Τα page fragments δεν ξαναϋπολογίζουν τα σύνολα από τα εμφανιζόμενα υποσύνολα.
+The layout's `pages` array says which companies, or which row ranges of a
+company, go on each page, and which page carries synopsis, certificates and
+education. `validate-pages` checks every vessel row appears exactly once, in
+order, and that synopsis follows the last experience page. After each page
+the template asserts the page counter, so overflow fails with a message
+instead of spilling onto an unplanned page.
 
-## Σελιδοποίηση με οπτικό έλεγχο
+## Verification
 
-Το page plan κατανέμει ρητά εταιρείες ή τμήματα εταιρειών. Ελέγχεται ότι κάθε vessel row εμφανίζεται ακριβώς μία φορά, με την αρχική σειρά. Το Synopsis ανήκει στην τελευταία σελίδα Experience. Αν η σύνθεση δημιουργήσει επιπλέον σελίδα, δίνεται μήνυμα overflow και ζητείται αλλαγή στο page plan, όχι αυτόματη σμίκρυνση γραμμάτων.
-
-Οι φυσιολογικές εταιρείες παραμένουν ενιαία blocks. Μεγάλες εταιρείες χωρίζονται ρητά με row ranges και εμφανίζουν ένδειξη συνέχειας. Ο πίνακας πιστοποιητικών επαναλαμβάνει την κεφαλίδα αν συνεχιστεί σε άλλη σελίδα. Σε πλήρες CV, η προβλεπόμενη κατανομή πρέπει να εγκρίνεται από τον page-count check και τον οπτικό έλεγχο.
-
-## Επαλήθευση
-
-`tests/run.py` εκτελεί τις δοκιμές δεδομένων, υπερχείλισης, κρυφών χρόνων, εταιρειών σε συνέχεια, προαιρετικών πεδίων και διαφορετικών themes. Το engineer συγκρίνεται με v11 σε 144 dpi και normalized text ανά σελίδα. Ελέγχονται embedded fonts, όρια σελίδας και hashes των frozen αρχείων.
-
-Το τελικό PDF εξακολουθεί να χρειάζεται οπτική ματιά όταν αλλάζει ουσιαστικά το περιεχόμενο. Οι έλεγχοι εξαγωγής κειμένου και τα PDF artifacts δεν αποτελούν εμπορική πιστοποίηση ATS.
-
-Για την παραμετρική απόδοση SVG χρησιμοποιείται το επίσημο API [Typst image / bytes](https://typst.app/docs/reference/visualize/image/). Τα SVG χρωματίζονται στη μνήμη, χωρίς τροποποίηση των αρχικών αρχείων.
+`tests/run.py` compiles the fixtures and the examples, checks fonts, text
+bounds and page counts, and compares the engineer example to the frozen v11
+PDF at 144 dpi plus normalised text. `tests/baseline.json` pins the hashes of
+every frozen input so the comparison stays meaningful. See
+`docs/reference/verification.md`.

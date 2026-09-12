@@ -37,19 +37,26 @@ def main():
         return pdf
 
     check_frozen()
-    skills = compile_case('skills', 'tests/skills.typ')
+    compile_case('configuration', 'tests/fixtures/configuration.typ')
+    content = compile_case('content', 'tests/fixtures/content.typ')
+    assert verify(content, pages=1, output=out / 'content-check')['passed']
+    with fitz.open(content) as doc:
+        text = ' '.join(doc[0].get_text().split())
+        for phrase in ['Northline Marine', 'TOTAL EXPERIENCE', 'Certificates & endorsements', 'Education & languages']:
+            assert phrase in text, phrase
+    skills = compile_case('skills', 'tests/fixtures/skills.typ')
     assert verify(skills, pages=1, output=out / 'skills-check')['passed']
     with fitz.open(skills) as doc:
         text = ' '.join(doc[0].get_text().split())
         for phrase in ['Professional Skills', 'Technical Skills', 'Three columns', 'Navigation', 'Plain bullet', 'Third']:
             assert text.count(phrase) == 1, phrase
     engineer = compile_case('engineer', 'examples/engineer.typ')
-    result = verify(engineer, ROOT / 'exports/review/Marine-Engineer-CV-v11.pdf', output=out / 'exact')
+    result = verify(engineer, ROOT / 'reference/Marine-Engineer-CV-v11.pdf', output=out / 'exact')
     assert result['passed'], result
     hidden = compile_case('engineer-hidden', 'examples/engineer.typ', {'vessel-durations': 'false'})
     with fitz.open(engineer) as a, fitz.open(hidden) as b:
         assert len(a) == len(b) == 2
-        data = json.loads((ROOT / 'content/extended-company-example.json').read_text())
+        data = json.loads((ROOT / 'content/engineer-example.json').read_text())
         names = [s['name'] for c in data['companies'] for g in c['groups'] for s in g['ships']]
         names += ['Second Engineer', 'Third Engineer', 'Fourth Engineer', 'Engineering Cadet']
         for pa, pb in zip(a, b):
@@ -63,22 +70,22 @@ def main():
     with fitz.open(classic) as a, fitz.open(silver) as b:
         assert [' '.join(p.get_text().split()) for p in a] == [' '.join(p.get_text().split()) for p in b]
         assert 'Engineer' not in ''.join(p.get_text() for p in a)
-    compile_case('data-valid', 'tests/data.typ')
+    compile_case('data-valid', 'tests/fixtures/data.typ')
     for mode, message in [('missing-visible', 'Visible vessel durations'), ('mismatch', 'does not match'), ('negative', 'non-negative integer')]:
-        compile_case('data-' + mode, 'tests/data.typ', {'case': mode}, error=message)
+        compile_case('data-' + mode, 'tests/fixtures/data.typ', {'case': mode}, error=message)
     for mode in ['normal', 'no-portrait', 'no-contact']:
-        compile_case('hero-' + mode, 'tests/components.typ', {'case': mode})
+        compile_case('hero-' + mode, 'tests/fixtures/components.typ', {'case': mode})
     for mode in ['long-name', 'long-email']:
-        compile_case('hero-' + mode, 'tests/components.typ', {'case': mode}, error='exceeds')
+        compile_case('hero-' + mode, 'tests/fixtures/components.typ', {'case': mode}, error='exceeds')
     for mode in ['missing-months', 'optional', 'long-vessel']:
-        pdf = compile_case('options-' + mode, 'tests/options.typ', {'case': mode})
+        pdf = compile_case('options-' + mode, 'tests/fixtures/options.typ', {'case': mode})
         assert verify(pdf, output=out / ('options-' + mode + '-check'))['passed']
-    long_hidden = compile_case('long-hidden', 'tests/options.typ', {'case': 'long-vessel', 'times': 'false'})
+    long_hidden = compile_case('long-hidden', 'tests/fixtures/options.typ', {'case': 'long-vessel', 'times': 'false'})
     with fitz.open(out / 'options-long-vessel.pdf') as a, fitz.open(long_hidden) as b:
         for pa, pb in zip(a, b):
             for token in ['MV Aurora', 'MV Caspian', 'Second Engineer']:
                 assert pa.search_for(token) == pb.search_for(token), token
-    three = compile_case('three-pages', 'tests/pagination.typ')
+    three = compile_case('three-pages', 'tests/fixtures/pagination.typ')
     assert verify(three, pages=3, output=out / 'three-check')['passed']
     with fitz.open(three) as doc:
         text = ' '.join(' '.join(p.get_text().split()) for p in doc)
@@ -87,9 +94,9 @@ def main():
         assert 'TOTAL EXPERIENCE' in doc[2].get_text()
         for i in range(8):
             assert text.count('MV Test Vessel ' + str(i + 1)) == 1
-    compile_case('overflow', 'tests/pagination.typ', {'case': 'overflow'}, error='Content overflow')
-    compile_case('duplicate', 'tests/pagination.typ', {'case': 'duplicate'}, error='each vessel row once')
-    certs = compile_case('certificate-continuation', 'tests/certificate-continuation.typ')
+    compile_case('overflow', 'tests/fixtures/pagination.typ', {'case': 'overflow'}, error='Content overflow')
+    compile_case('duplicate', 'tests/fixtures/pagination.typ', {'case': 'duplicate'}, error='each vessel row once')
+    certs = compile_case('certificate-continuation', 'tests/fixtures/certificate-continuation.typ')
     with fitz.open(certs) as doc:
         assert len(doc) == 2
         assert all('Scope / record' in p.get_text() for p in doc)

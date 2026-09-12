@@ -1,7 +1,8 @@
-#import "flagship.typ": theme as classic
+#import "golden-blue.typ": theme as classic
 // Same components and page plan; typography metrics belong to the theme.
 #let theme = (
   ..classic,
+  name: "Silver Bridge",
   colors: (ink: rgb("202830"), hero: rgb("202830"), accent: rgb("425565"),
     metal: rgb("b8c2cc"), muted: rgb("596570"), surface: rgb("f0f3f5"),
     paper: white, plate: white, rule: rgb("d6dde2"), on-hero: white),

@@ -1,0 +1,88 @@
+# Candidate schema
+
+Read this when editing a candidate JSON. Machine-checkable version:
+`schema/candidate.schema.json`. Runtime checks: `validate-candidate` in
+`src/data.typ`.
+
+Top-level shape. Required keys are `identity` and `companies`.
+
+```json
+{
+  "identity":          { "name": "ALEX MORGAN", "rank": "SECOND ENGINEER",
+                         "portrait": "/assets/fictional-engineer.png",
+                         "portrait-alt": "AI-generated portrait" },
+  "contacts":          { "left":  [ { "label": "Based in", "value": "Rotterdam, Netherlands" } ],
+                         "right": [ { "label": "Email", "value": "a@example.com", "href": "mailto:a@example.com" } ] },
+  "profile":           "Two or three sentences shown beside the vessel illustration.",
+  "companies":         [ { "id": "northline", "name": "Northline Marine", "period": "2022 - 2026",
+                           "groups": [ { "type": "Product tankers",
+                                         "ships": [ { "id": "meridian", "name": "MV Meridian",
+                                                      "rank": "Second Engineer", "months": 8 } ] } ] } ],
+  "certificates":      [ ["Certificate of Competency", "Second Engineer / III/2", "15 Jul 2024", "14 Jul 2029"],
+                         { "title": "...", "scope": "...", "issued": "...", "review": "..." } ],
+  "education_entries": [ { "qualification": "Diploma in Marine Engineering",
+                           "institution": "Merchant Marine Academy", "note": "optional" } ],
+  "language_entries":  [ { "name": "Greek", "level": "Native" } ],
+  "disclosure":        "optional footer text",
+  "copy":              { "optional": "heading and caption overrides, see below" }
+}
+```
+
+## Field notes
+
+- **identity.portrait** is a path from the project root, or `null` for no
+  photo. For a real person use `/private/portrait.jpg`.
+- **contacts** are ordered. Remove an entry to hide it. `href` is optional
+  and makes the value a link. Every value must fit `layout.hero.contacts-width`
+  or the hero fails with a message.
+- **companies[].id** is optional and defaults to the lower-cased name with
+  spaces replaced by hyphens. Ids must be unique.
+- **companies[].period** is display text. It is never parsed.
+- **companies[].service-months** is the company total. Use it when
+  per-vessel months are unknown, together with hidden durations. If every
+  vessel also has `months`, the two must agree.
+- **ships[].id** stays the same when the same vessel appears again under
+  another rank or company. It counts once in the vessel total; months add.
+- **ships[].months** are whole service months. Required when durations are
+  shown.
+- **certificates** accept either a four-string array in the order title,
+  scope, issued, review, or an object with those keys.
+- **education_entries[].note** is optional and renders small under the
+  institution.
+- **copy** overrides heading text. Keys and defaults:
+
+```text
+experience            "Experience"
+experience-subtitle   "Company / vessel type / vessel"
+continuation          "Continued / earlier companies"
+combined              "Combined service"
+total                 "Total experience"
+vessels               "Vessels"
+companies             "Companies"
+certificates          "Certificates & endorsements"
+certificates-subtitle "Illustrative register - dates and credentials are fictional"
+certificate-columns   ["Certificate", "Scope / record", "Issued", "Expires / review"]
+education-languages   "Education & languages"
+education             "Education"
+languages             "Languages"
+page-caption          "EXPERIENCE / CREDENTIALS"
+brand                 "FLAGSHIP"
+```
+
+When `copy` is given it replaces the whole dictionary, so include every key
+you still want.
+
+## Errors you will see
+
+| Message | Fix |
+|---|---|
+| `Candidate requires identity` or `... companies` | Add the missing top-level key |
+| `Visible vessel durations require months: <ship>` | Add `months`, or hide durations and give `service-months` |
+| `Company service-months does not match vessel months` | Make the total equal the sum |
+| `Known vessel months exceed company total` | With partial vessel months, the company total must be at least their sum |
+| `Missing months: provide service-months for company <name>` | Durations hidden but neither every vessel's `months` nor a company `service-months` is given |
+| `Rank exceeds identity plate` | Shorter rank, smaller `theme.sizes.rank`, or wider `layout.hero.plate-width` |
+| `Contact group is too tall for the hero` | Fewer contact entries on that side, or smaller `layout.hero.contacts-gap` |
+| `Company IDs must be unique` | Give the second company a different `id` |
+| `Name exceeds identity plate` | Shorter name, smaller `theme.sizes.name`, or wider `layout.hero.plate-width` |
+| `Contact exceeds hero column` | Shorter value or wider `layout.hero.contacts-width` |

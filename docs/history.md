@@ -1,0 +1,64 @@
+# History
+
+How the project got here. Append, never rewrite. Decisions with lasting
+consequences also get an ADR in `decisions/`.
+
+## 2026-09-09 — from studies to a library, in one day
+
+**Three one-page studies.** Soundings, Engine Room and Horizon explored three
+visual directions on the same fictional data. All three had extractable text,
+embedded fonts and text inside the page bounds. They survive in `designs/`.
+
+**Flagship, revisions 04 to 07.** A two-page design with a circular portrait,
+contact columns and an identity plate over the portrait's lower edge.
+Successive passes added mechanical SVG details, a shared spacing scale and
+refined hero artwork. Each pass was checked to be pixel-identical to the
+previous one outside the changed region.
+
+**Revision 08.** Experience regrouped as company, vessel type, vessel with
+whole-month durations. Summary metrics derived from data. Education and
+languages replaced the toolkit. Component extraction paused until the design
+settled.
+
+**Revision 09.** A longer fictional career, 23 vessels across six companies,
+ending mid page two. A global `vessel-durations` input to hide all durations
+at once.
+
+**Revision 10.** The synopsis moved to the end of experience, before
+certificates. PDF naming became `Marine-Engineer-CV-vNN.pdf`.
+
+**Revision 11, locked.** Education anchored lower with flexible space above,
+an 11 mm bottom margin on page two. The owner approved v11 as the frozen
+reference. Source `designs/11-flagship-balance.typ`, render
+`reference/Marine-Engineer-CV-v11.pdf`.
+
+**The library.** Built task by task against v11, each task reviewed and
+committed before the next:
+
+| Task | Outcome |
+|---|---|
+| Baseline | Fresh compile equals v11 at 144 dpi and normalised text. A deliberate red-text change is rejected. Hash manifest of frozen inputs. |
+| Configuration | Theme, artwork slots and geometry separated. |
+| Data | Normalisation, validation and pure totals. Repeated vessels deduplicate; company-only months accepted when durations are hidden. |
+| Hero | Exact match of the hero region. Fit assertions for name, rank and contacts. SVG recolouring via `image(bytes(...))`. |
+| Content | Experience, synopsis, certificates, education composed from small modules. Hidden durations keep geometry. |
+| Composition | Public `flagship` template renders v11 with zero raster differences. A scoped page-margin rule that caused an extra page was moved to the page loop. |
+| Captain | Same components, new artwork pack, wheel and chart backgrounds. No engineer wording leaks. |
+| Silver | A second theme changes only the theme import. Legacy SVG colours mapped through `art-colors`. |
+| Boundary review | 21 compile cases: overflow, duplicate allocation, three-page split with continued company, certificate header repeat, optional fields, wrapped durations. |
+| Delivery | Build script, Greek guides, versioned PDFs, main entry matches v11. |
+
+Then the original blue and gold theme was named Golden Blue and an optional
+skills section with themed bullets was extracted.
+
+## 2026-09-12 — restructure for agents
+
+Historical revisions 04 to 10, their renders and per-revision verification
+records were removed (tag `archive/pre-restructure`). The four distinct
+studies stayed as worked examples. `roles/` became `artwork/`, the duplicate
+theme file was folded into `golden-blue.typ`, fixtures moved under
+`tests/fixtures/`, the frozen PDF under `reference/`. The legacy flat-schema
+adapter was removed with its data. Greek guides were replaced by an English
+documentation set: vision, architecture, tech stack, constitution,
+conventions, git workflow, per-concept references, ADRs, a JSON Schema,
+project skills and CI. The engineer example still matches v11 exactly.
