@@ -1,9 +1,11 @@
 # AGENTS.md — map of this repository
 
-Composable Typst library that renders two-page maritime CVs. One template,
+Composable Typst library that renders maritime CVs. Today one template,
 `flagship`, takes five independent inputs: candidate JSON, theme, artwork
-pack, layout profile and a durations switch. Read this file, then open only
-what your task needs.
+pack, layout profile and a durations switch. The product is a family of such
+templates on one shared core, each rendering deck and engine candidates
+(`docs/vision.md`, ADR 0007). Read this file, then open only what your task
+needs.
 
 ## Where things are
 
@@ -42,7 +44,7 @@ typst compile --root . --font-path fonts examples/engineer.typ builds/scratch.pd
 
 Full text in `docs/constitution.md`. The short list:
 
-1. `reference/Marine-Engineer-CV-v11.pdf` and the hashes in `tests/baseline.json` are frozen. `examples/engineer.typ` must render pixel-identical to it. A change that breaks this needs a new frozen reference and an ADR.
+1. Every approved template has a frozen reference under `reference/` and a public example that must render pixel-identical to it; the hashes in `tests/baseline.json` are frozen with it. Today: `reference/Marine-Engineer-CV-v11.pdf` and `examples/engineer.typ`. A change that breaks this needs a new frozen reference and an ADR.
 2. Every output goes to a new folder. Scripts refuse to overwrite.
 3. Public content is fictional. Real candidate data lives in `private/`, which is ignored.
 4. No automatic font shrinking. Overflow fails loudly and the page plan is changed by hand.
@@ -79,6 +81,9 @@ that names the files to copy, the commands to run and the evidence to report.
   covers it. Say what you found in a line, then act.
 - Prefer the owning module over a parallel one. Related components stay in
   one small file.
+- New or migrated components follow the contract in `docs/conventions.md`
+  (ADR 0008): `ctx` first, data, named props, slots. Deck and engine are
+  never separate templates (constitution section 7).
 - Every non-trivial change ends with `python tests/run.py` passing and the
   evidence path reported. A visual change also needs a rendered page.
 - Commit and push on the working branch freely. Never merge to `main`

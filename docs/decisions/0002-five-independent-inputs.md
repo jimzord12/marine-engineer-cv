@@ -1,7 +1,7 @@
 # 0002. One template, five independent inputs
 
 Date: 2026-09-09
-Status: Accepted
+Status: Accepted. The five inputs stand; "one template" is amended by 0007.
 
 ## Context
 

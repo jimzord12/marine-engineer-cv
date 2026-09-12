@@ -29,3 +29,6 @@ What becomes easier, what becomes harder, what the suite enforces.
 | [0003](0003-explicit-pagination.md) | Page allocation is explicit and validated, never automatic |
 | [0004](0004-hidden-durations-keep-geometry.md) | Hiding durations reserves geometry and emits no text |
 | [0005](0005-restructure-for-agents.md) | Prune history, keep four studies, English docs, agent entry files |
+| [0006](0006-typst-stays.md) | Typst stays as the page engine; React and headless Chromium rejected on evidence |
+| [0007](0007-family-of-templates.md) | A family of templates over one shared core; deck and engine are variations, never forks. Amends 0002 |
+| [0008](0008-component-contract.md) | One React-inspired component contract: ctx first, data, props, slots, scoped styles |

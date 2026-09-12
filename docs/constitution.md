@@ -6,9 +6,11 @@ Read before anything irreversible. Conventions, which do evolve, are in
 
 ## 1. Frozen references are contracts
 
-- `reference/Marine-Engineer-CV-v11.pdf` is the approved look.
-  `examples/engineer.typ` must render pixel-identical to it at 144 dpi with
-  identical normalised text on every page. `tests/run.py` enforces this.
+- Every approved template has a frozen reference render under `reference/`
+  and a public example that must render pixel-identical to it at 144 dpi
+  with identical normalised text on every page. `tests/run.py` enforces
+  this. Today that is Flagship: `reference/Marine-Engineer-CV-v11.pdf` and
+  `examples/engineer.typ`.
 - `tests/baseline.json` pins the SHA-256 of every asset, font, example JSON,
   design study and the reference PDF, whether or not the engineer comparison
   uses it. Changing any of them is a design decision, recorded as an ADR in `docs/decisions/`, with a
@@ -52,8 +54,10 @@ periods are never converted into service time.
 
 ## 7. Roles do not leak into components
 
-No component branches on engineer versus captain. Role identity lives in the
-artwork pack and the candidate JSON only.
+Deck and engine are variations of every template, expressed through the
+candidate JSON, the artwork pack and copy strings. No component branches on
+role. No template is forked by role. A section that must differ between the
+two is a slot or a data-selected variant of the same template (ADR 0007).
 
 ## 8. Licences travel with their files
 

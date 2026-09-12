@@ -26,7 +26,9 @@ commands with `pwsh` or run the compiler directly.
 
 ## Deliberately not used
 
-- No Node, React or web framework. The output is a PDF, the input is JSON.
+- No Node, React or web framework as the renderer. React and headless
+  Chromium were evaluated and rejected in ADR 0006; the findings are there.
+  Web technology may sit in front of the library, never in place of it.
 - No icon fonts. Icons are SVG in `assets/`.
 - No hosted Typst. Everything compiles locally so real candidate data never
   leaves the machine.

@@ -45,6 +45,13 @@ Top-level shape. Required keys are `identity` and `companies`.
   another rank or company. It counts once in the vessel total; months add.
 - **ships[].months** are whole service months. Required when durations are
   shown.
+- **Contract periods are not supported yet.** Deck careers are usually
+  recorded as one date range per contract, not as service months. There is
+  no field for that, and the synopsis counts months, vessels and companies.
+  This is roadmap item one in `docs/vision.md` (ADR 0007). Until it lands, a
+  deck CV with contract periods uses the custom-composition path in
+  `docs/guides/build-a-cv.md`, section 7. Do not convert calendar periods
+  into months to make the data fit; constitution section 6 forbids it.
 - **certificates** accept either a four-string array in the order title,
   scope, issued, review, or an object with those keys.
 - **education_entries[].note** is optional and renders small under the

@@ -62,3 +62,22 @@ adapter was removed with its data. Greek guides were replaced by an English
 documentation set: vision, architecture, tech stack, constitution,
 conventions, git workflow, per-concept references, ADRs, a JSON Schema,
 project skills and CI. The engineer example still matches v11 exactly.
+
+## 2026-09-12 to 13 — product direction set
+
+The owner considered replacing Typst with React or headless Chromium for
+finer control and a component model he can read. A research pass against
+the library's requirements found neither option could keep the pixel gate,
+the tagged PDF artifacts and measured rows without trade-offs Typst does not
+have. Typst stays (ADR 0006).
+
+The owner stated the product: several named templates, each rendering deck
+and engine candidates, each with two to four themes, plus a one-page layout
+for cadets. The restructure docs had inferred "one template" as a principle
+and were corrected (ADR 0007). The two real CVs produced so far both bypass
+the template because deck careers are recorded as contract periods the
+schema cannot hold; that became roadmap item one.
+
+A React-inspired component contract was accepted, ctx-first, with slots and
+scoped style blocks (ADR 0008). Migration of the Flagship modules to it is
+the next code task.
