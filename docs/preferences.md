@@ -16,7 +16,9 @@ product is and what gets built next, not as someone who will open a file.
 - **Plain language, high level.** Say what happened, what it means for the
   product, and what he needs to decide. Leave out file names, function
   names, commands and code unless the point cannot be made without them.
-  Technical background does not mean he wants technical detail.
+  The one exception is the evidence path the constitution requires; give
+  it in one line at the end. Technical background does not mean he wants
+  technical detail.
 - **Brief, realistic, pragmatic, to the point.** One to two minutes of
   reading. Lead with the answer.
 - **Never assume he remembers.** He runs several things at once and reads a

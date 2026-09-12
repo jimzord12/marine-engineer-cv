@@ -56,9 +56,10 @@ Approved by the owner in conversation on 2026-09-12, including ctx-first.
 - `docs/conventions.md` changes its signature rule. A module is migrated
   whole; a file never mixes the old and new order. At the time of writing
   no module is migrated and `src/component.typ` does not exist yet.
-- Migration is one module per commit, smallest first, with the engineer
-  pixel gate green after every commit. Order: primitives, sections, skills,
-  education, certificates, experience, hero, page, template. `data.typ`,
+- Migration is one module per commit in dependency order, leaves first,
+  with the engineer pixel gate green after every commit. Order: primitives,
+  sections, skills, education, certificates, experience, hero, page,
+  template. `data.typ`,
   `theme.typ` and `pagination.typ` are pure functions, not components, and
   are exempt.
 - The template stops threading layout slices and shrinks.

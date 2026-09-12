@@ -1,8 +1,9 @@
 # Layout and pagination
 
 Read this when a page is out of balance, content overflows, or a new
-candidate needs a different page split. Everything here lives in
-`layouts/flagship-v11.typ` and `src/pagination.typ`.
+candidate needs a different page split. The geometry lives in
+`layouts/flagship-v11.typ`, page plan validation in `src/pagination.typ`,
+and the overflow check in the page loop of `src/templates/flagship.typ`.
 
 ## The layout profile
 

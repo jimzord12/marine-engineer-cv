@@ -48,7 +48,7 @@ what is per template:
 | Candidate contract and schema, normalisation, totals (`data.typ`) | Section components: hero, experience, synopsis, certificates, education, skills |
 | Page shell, header, footer, backgrounds (`page.typ`) | Layout profiles and page plans |
 | Page plan validation (`pagination.typ`) | The page loop with its overflow assertion, today in `templates/flagship.typ` |
-| | Frozen reference render and its pixel gate |
+| The verification runner and its checks | Frozen reference render and its pixel gate |
 | SVG recolouring and primitives | Artwork slot names the template expects |
 | Component helpers, theme validation, the suite | Copy defaults |
 

@@ -8,7 +8,7 @@ when the gap is filled.
 Each entry is a few lines:
 
 ```text
-### YYYY-MM-DD  short title                          Status: open | closed by <ADR, PR or commit>
+### YYYY-MM-DD  short title                          Status: open [, where it is planned] | closed by <ADR, PR or commit>
 Needed:   what the owner or candidate required
 Bypassed: which component, template or rule of the contract could not do it
 Built:    what was done instead, and where (a private folder, an entry point, a one-off)

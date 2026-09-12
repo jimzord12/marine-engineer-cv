@@ -49,7 +49,7 @@ Full text in `docs/constitution.md`. The short list:
 3. Public content is fictional. Real candidate data lives in `private/`, which is ignored.
 4. No automatic font shrinking. Overflow fails loudly and the page plan is changed by hand.
 5. Evidence before "done": the suite output, a render, or a diff image.
-6. The framework is the happy path, not a cage. Go around a component when the work needs it, record the bypass in `docs/framework-gaps.md`, and never go around rules 1 to 4.
+6. The framework is the happy path, not a cage. Go around a component when the work needs it and record the bypass in `docs/framework-gaps.md`. Never go around the frozen references, the fictional-content rule, the no-shrinking rule or the totals rule (calendar periods are never converted into service time).
 
 ## Documentation
 

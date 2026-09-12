@@ -34,3 +34,4 @@ What becomes easier, what becomes harder, what the suite enforces.
 | [0006](0006-typst-stays.md) | Typst stays as the page engine; React and headless Chromium rejected on evidence |
 | [0007](0007-family-of-templates.md) | A family of templates over one shared core; deck and engine are variations, never forks. Amends 0002 |
 | [0008](0008-component-contract.md) | One React-inspired component contract: ctx first, data, props, slots, scoped styles |
+| [0009](0009-framework-not-a-cage.md) | The framework is the happy path, not a cage: bypass components freely, log every bypass, never bypass rules |

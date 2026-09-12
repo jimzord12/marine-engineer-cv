@@ -82,3 +82,11 @@ table. Closing that gap became roadmap item one.
 A React-inspired component contract was accepted, ctx-first, with slots and
 scoped style blocks (ADR 0008). Migration of the Flagship modules to it is
 the next code task.
+
+The owner added a standing rule: the framework is the happy path, not a
+cage. Agents may go around components to deliver, must log each bypass in
+`docs/framework-gaps.md`, and never go around the frozen-reference,
+fictional-content, no-shrinking or totals rules (ADR 0009, constitution
+section 10). The log opened with the three bypasses found in the real CVs.
+`docs/preferences.md` was added to tell every agent how the owner wants to
+be briefed.

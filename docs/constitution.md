@@ -86,4 +86,5 @@ in a few lines: what was needed, what was bypassed, what was built instead.
 Second, a bypass goes around components, never around rules: the frozen
 references, the fictional-content rule, the no-shrinking rule and the
 totals rule still hold. The gaps log feeds the rule of three; a gap that
-appears again becomes a component, a slot or an extension.
+appears again becomes a component, a slot or an extension. Decided by the
+owner on 2026-09-12, ADR 0009.

@@ -12,7 +12,7 @@ private/jane-doe-second-engineer/
   README.md              how to build, what was decided, where the evidence is
   candidate.json         candidate data
   cv.typ                 entry point
-  portrait.jpg           authorised photograph
+  portrait.<ext>         authorised photograph, jpg or png
   reference.pdf          the approved render, once there is one
   presentation.json      only for the custom path in section 7: data the schema cannot hold
 ```
@@ -45,7 +45,7 @@ render. Splitting one large company across pages is shown in
 Copy `content/engineer-example.json` or `content/captain-example.json` and
 replace every value. Field meanings and error messages are in
 `../reference/candidate-schema.md`. Set `identity.portrait` to
-`/private/jane-doe-second-engineer/portrait.jpg` or `null`.
+`/private/jane-doe-second-engineer/portrait.<ext>` or `null`.
 
 If you do not know months per vessel, set `show-vessel-durations: false` and
 give each company a `service-months` total instead.
@@ -87,12 +87,13 @@ Do not commit certificate numbers, scans or passport details anywhere.
 
 ## 7. When the template does not fit
 
-Some real CVs cannot go through `flagship` yet. Two causes are known: a
-career recorded as contract periods rather than service months (see the
-note in `../reference/candidate-schema.md`), and an approved design that
-needs a three-column certificate table, which the template's four-column
-table cannot produce. Until the template supports these, compose the page
-by hand from the same public exports:
+Some real CVs cannot go through `flagship` yet. The known causes are
+recorded in `../framework-gaps.md`: a career recorded as contract periods
+rather than service months (see the note in
+`../reference/candidate-schema.md`), an approved design that needs a
+three-column certificate table, and a skills block the template has no
+slot for. Until the template supports these, compose the page by hand from
+the same public exports:
 
 ```typst
 #import "../../lib.typ": (document-shell, page-header, hero, profile-summary,

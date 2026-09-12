@@ -48,9 +48,11 @@ contract, then freezes an approved render.
    to read in one go. Shared code is promoted when a third template needs
    it, never speculated.
 7. **The framework grows from use.** It is the happy path, not a cage.
-   Going around it to get a CV done is allowed and recorded in
+   Going around a component to get a CV done is allowed and recorded in
    `docs/framework-gaps.md`; repeated gaps become components, slots or
-   extensions. The system is meant to evolve, not to be obeyed.
+   extensions. Going around a rule is not: frozen references, fictional
+   content, no shrinking and totals from data still hold (constitution
+   section 10). The system is meant to evolve, not to be obeyed.
 
 ## Direction
 

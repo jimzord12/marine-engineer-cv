@@ -32,7 +32,7 @@ Top-level shape. Required keys are `identity` and `companies`.
 
 - **identity.portrait** is a path from the project root, or `null` for no
   photo. For a real person use the path inside the candidate's folder,
-  `/private/<candidate-folder>/portrait.jpg`.
+  `/private/<candidate-folder>/portrait.<ext>`, jpg or png.
 - **contacts** are ordered. Remove an entry to hide it. `href` is optional
   and makes the value a link. Every value must fit `layout.hero.contacts-width`
   or the hero fails with a message.
