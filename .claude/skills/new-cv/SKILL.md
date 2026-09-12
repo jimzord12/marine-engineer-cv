@@ -23,9 +23,11 @@ Follow `docs/guides/build-a-cv.md`. This skill is the checklist.
    the company and plan to hide durations.
 2. Validate the JSON against `schema/candidate.schema.json` if a validator
    is available; otherwise rely on the compile-time assertions.
-3. Write the seven-line entry point. Pick theme (`themes/`), artwork
-   (`artwork/`), layout (`layouts/flagship-v11.typ`), and the durations
-   switch.
+3. Write the entry point as shown in the guide. Pick theme (`themes/`),
+   artwork (`artwork/`), the durations switch, and import the layout
+   `as base` with a `pages` override that lists this candidate's company
+   indices. The shipped plan assumes six companies and fails with
+   `Page plan company index out of bounds` for any other count.
 4. Compile to a new file under `builds/`:
    `typst compile --root . --font-path fonts <entry> builds/<name>-01.pdf`.
 5. On a fit or overflow error, apply the fix the message names. Page plan

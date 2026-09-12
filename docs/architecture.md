@@ -93,4 +93,4 @@ instead of spilling onto an unplanned page.
 bounds and page counts, and compares the engineer example to the frozen v11
 PDF at 144 dpi plus normalised text. `tests/baseline.json` pins the hashes of
 every frozen input so the comparison stays meaningful. See
-`reference/verification.md`.
+`docs/reference/verification.md`.

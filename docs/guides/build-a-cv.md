@@ -12,17 +12,28 @@ private/
   portrait.jpg           authorised photograph
 ```
 
-`private/jane-doe.typ`:
+`private/jane-doe.typ`. The shipped layout's page plan assumes the example's
+six companies, so a real candidate always overrides `pages` with their own
+company indices, zero-based, in JSON order:
 
 ```typst
 #import "../lib.typ": flagship
 #import "../themes/golden-blue.typ": theme
 #import "../artwork/engineer.typ": artwork
-#import "../layouts/flagship-v11.typ": layout
+#import "../layouts/flagship-v11.typ": layout as base
+#let layout = (..base, pages: (
+  (companies: (0, 1)),
+  (companies: (2,), synopsis: true, certificates: true, education: true),
+))
 #let candidate = json("jane-doe.json")
 #show: flagship.with(candidate: candidate, theme: theme, artwork: artwork, layout: layout,
   show-vessel-durations: true)
 ```
+
+Three companies here: two open page one, the third closes page two with the
+synopsis, certificates and education. Adjust the split after looking at the
+render. Splitting one large company across pages is shown in
+`../reference/layout-and-pagination.md`.
 
 ## 2. Fill the data
 
@@ -52,8 +63,10 @@ Every failure names the fix. The common ones:
 
 - A name, rank or contact too long for the hero: shorten it or override the
   size in the entry point, `theme: (..theme, sizes: (..theme.sizes, name: 30pt))`.
-- Overflow on a page: change the page plan as shown in
-  `../reference/layout-and-pagination.md`. Do not shrink the body font.
+- `Page plan company index out of bounds`: the `pages` override does not
+  match the number of companies in the JSON. Fix the indices.
+- Overflow on a page: move a company to the next page or split it as shown
+  in `../reference/layout-and-pagination.md`. Do not shrink the body font.
 
 ## 5. Look at every page
 

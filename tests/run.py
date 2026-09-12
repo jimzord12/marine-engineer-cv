@@ -40,6 +40,10 @@ def main():
     compile_case('configuration', 'tests/fixtures/configuration.typ')
     content = compile_case('content', 'tests/fixtures/content.typ')
     assert verify(content, pages=1, output=out / 'content-check')['passed']
+    with fitz.open(content) as doc:
+        text = ' '.join(doc[0].get_text().split())
+        for phrase in ['Northline Marine', 'TOTAL EXPERIENCE', 'Certificates & endorsements', 'Education & languages']:
+            assert phrase in text, phrase
     skills = compile_case('skills', 'tests/fixtures/skills.typ')
     assert verify(skills, pages=1, output=out / 'skills-check')['passed']
     with fitz.open(skills) as doc:

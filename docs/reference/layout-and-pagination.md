@@ -68,6 +68,7 @@ finish.
 
 | Message | Meaning | Fix |
 |---|---|---|
+| `Page plan company index out of bounds` | The plan names more or fewer companies than the candidate has. The default plan assumes six | Write a `pages` override listing the candidate's own company indices |
 | `Content overflow on planned page N` | The page spilled onto an unplanned page | Move a company to the next page, split it with row ranges, or add a page |
 | `Page plan must cover each vessel row once` | A company or row range is missing or duplicated | Check indices against candidate order |
 | `Synopsis must follow the final Experience page` | Flag on the wrong page | Move `synopsis: true` |

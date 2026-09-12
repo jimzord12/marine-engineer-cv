@@ -11,7 +11,11 @@
     "assets/fictional-engineer.png": "262b1055967ece92f08ad0ada714e3e2b2f392f1816f433d6c8bc816ba1ee06a",
     "assets/hero-coupling-left.svg": "2ace32b9f0c97113a0b0474831d2d349d187664d07bf501e7623845c49cff794",
     "assets/hero-coupling-right.svg": "3111379a8af2b746ac93cd7d9558f55becf4495b12490e916bc913e0c8ea5ac3",
+    "assets/hull.svg": "487f9bcb4d93cb65046b4759a9006ff4903ebddbb50aaaba9973ec4b211bdabc",
     "assets/porthole.svg": "0f35358c3c8e1b131a61456a807db9c1e1393758af2031488fcbaf1c87aa3806",
+    "assets/screw-bullet.svg": "b035fc5e67d86c084d3c2facfab16198dd9704bcf0601f43151d1ac99e162339",
+    "assets/shaft.svg": "8e9d4447df7cc57fb2eaac22a9fc014457a83d1dd63ed0a1bacdd1ca301dbd5f",
+    "assets/soundings.svg": "58be01033681ab8b2d99621f60bc14eeaeddc5bf74b6b25c33ebebf8418e3622",
     "assets/spanners-refined.svg": "d473dc9aaebd5b6f3509495903e334f1f1e0f3ebbe173be5f155d6148bf6a11c",
     "assets/vessel-profile.svg": "bb3e209c51adc8022fe10d35cf15950c69cfeef5ec6d2e02640fd2b2181a931e",
     "assets/workshop-background-1.svg": "6fe57833db88c30c53f5ec89fd0539f0e3ef405578a3acdc0bd1641e6d71fe36",
@@ -26,6 +30,7 @@
     "designs/content/extended-company-example.json": "4662680b9ae685f911ccdebeddb1fc67fae82846c1e918ecd72f4431550e6a88",
     "designs/shared.typ": "77f2c874601df1aabcb9140f579fdbdf3acad6c1f616d2058d8675832168a21d",
     "fonts/BarlowCondensed-SemiBold.ttf": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+    "fonts/CormorantGaramond[wght].ttf": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
     "fonts/SourceSans3[wght].ttf": "042fe2cc0b933e328410d7acbd0aa6a1873dca5aef81875f4bc214b08825c7b9",
     "reference/Marine-Engineer-CV-v11.pdf": "9efd054b6fd376495a5eb3967bf0b833f24a8d8d09844d43dd253e3bd17187bf"
   }
