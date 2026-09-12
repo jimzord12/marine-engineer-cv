@@ -29,8 +29,9 @@ only fits because its data carries service months.
   by role. Where a section must genuinely differ, the template offers a
   slot or a data-selected variant.
 - **One shared core.** The candidate contract and schema, normalisation and
-  totals, the page shell, pagination and overflow checks, SVG recolouring,
-  the component contract and the verification suite are shared. A template
+  totals, the page shell, page plan validation, SVG recolouring, the
+  component contract and the verification suite are shared. Each template
+  owns its page loop and the overflow assertion inside it. A template
   never defines its own data model, so a candidate can change template
   without re-entering a career.
 - **Promotion by the rule of three.** A section moves from a template into

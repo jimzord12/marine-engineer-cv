@@ -95,9 +95,9 @@ table cannot produce. Until the template supports these, compose the page
 by hand from the same public exports:
 
 ```typst
-#import "../../lib.typ": document-shell, page-header, hero, profile-summary,
-  section-heading, skills-section
-// then place hero, sections and your own table in cv.typ
+#import "../../lib.typ": (document-shell, page-header, hero, profile-summary,
+  section-heading, skills-section)
+// then place the hero, the sections and your own table below
 ```
 
 The skills block is documented in `../reference/skills-component.md`; its

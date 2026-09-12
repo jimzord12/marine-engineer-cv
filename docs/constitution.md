@@ -30,7 +30,9 @@ commit with a new version number.
 
 Names, employers, vessels, dates, certificates and the portrait are invented.
 Real candidate data lives in `private/`, which git ignores, one folder per
-candidate with its own entry point importing `../../lib.typ`. Certificate numbers, scans and passport details
+candidate with its own entry point. New entry points import
+`../../lib.typ`; two older ones import modules under `src/` directly and
+are migrated when next touched. Certificate numbers, scans and passport details
 never enter this repository.
 
 ## 4. The system does not lie to fit

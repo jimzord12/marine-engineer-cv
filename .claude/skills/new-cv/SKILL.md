@@ -30,7 +30,8 @@ Follow `docs/guides/build-a-cv.md`. This skill is the checklist.
    artwork (`artwork/`), the durations switch, and import the layout
    `as base` with a `pages` override that lists this candidate's company
    indices. The shipped plan assumes six companies and fails with
-   `Page plan company index out of bounds` for any other count.
+   `Page plan company index out of bounds` for fewer, or
+   `Page plan must cover each vessel row once, in candidate order` for more.
    If the data does not fit `flagship` (contract periods instead of months,
    a three-column certificate table), use the custom-composition path in
    guide section 7 and record the reason in the folder's `README.md`.
