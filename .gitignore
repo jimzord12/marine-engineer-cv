@@ -15,3 +15,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local scratch renders from earlier sessions. Tracked deliverables are only
+# the three named PDFs directly under exports/.
+previews/
+exports/prototypes/
+exports/review/
+exports/local/
+exports/0*.pdf
