@@ -35,5 +35,5 @@ tree that is navigable without reading history.
 - Docs have one language and one place per concept. Adding a concept means
   adding a file and a row in `AGENTS.md`.
 - The hash manifest went from 45 to 31 entries. It now covers every asset
-  and font, both example JSON files, the captain artwork, the reference PDF,
-  and the four design studies with their data.
+  and font, both example JSON files, the reference PDF, and the four design
+  studies with their data.

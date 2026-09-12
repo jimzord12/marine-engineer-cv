@@ -80,6 +80,9 @@ you still want.
 | `Visible vessel durations require months: <ship>` | Add `months`, or hide durations and give `service-months` |
 | `Company service-months does not match vessel months` | Make the total equal the sum |
 | `Known vessel months exceed company total` | With partial vessel months, the company total must be at least their sum |
+| `Missing months: provide service-months for company <name>` | Durations hidden but neither every vessel's `months` nor a company `service-months` is given |
+| `Rank exceeds identity plate` | Shorter rank, smaller `theme.sizes.rank`, or wider `layout.hero.plate-width` |
+| `Contact group is too tall for the hero` | Fewer contact entries on that side, or smaller `layout.hero.contacts-gap` |
 | `Company IDs must be unique` | Give the second company a different `id` |
 | `Name exceeds identity plate` | Shorter name, smaller `theme.sizes.name`, or wider `layout.hero.plate-width` |
 | `Contact exceeds hero column` | Shorter value or wider `layout.hero.contacts-width` |

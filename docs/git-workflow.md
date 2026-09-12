@@ -50,8 +50,10 @@ Read this before branching, committing, tagging or opening a pull request.
 | Design studies with their review renders | Anything under `previews/` or `exports/review/` from earlier sessions |
 | Preview PNGs used by the README | |
 
-Binary files are marked in `.gitattributes`. Each committed PDF is around
-2.7 MB, so do not add renders casually. Replace, do not accumulate.
+`.gitattributes` stores and checks out every text file with LF on every
+platform, so the hashes in `tests/baseline.json` match on Windows, macOS,
+Linux and CI. Binary files are marked there too. Each CV PDF is about
+2.8 MB, so do not add renders casually. Replace, do not accumulate.
 
 ## Releasing a new render
 

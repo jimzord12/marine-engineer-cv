@@ -32,7 +32,7 @@ a role's identity lives visually.
 | Key | Meaning |
 |---|---|
 | `source` | Path from the project root, `/assets/...` |
-| `width` | Rendered width. Backgrounds ignore it and fill the page from the layout |
+| `width` | Rendered width. Backgrounds fill the page and `profile-illustration` uses `layout.profile.image-width`; both ignore it |
 | `x`, `y` | Offset from the slot's anchor, hero slots only |
 | `opacity` | 0 to 1, wraps the SVG in a group with that opacity |
 

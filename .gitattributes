@@ -1,4 +1,18 @@
+# Text files are stored and checked out with LF everywhere, so the hashes in
+# tests/baseline.json are the same on Windows, macOS, Linux and CI.
+* text=auto eol=lf
+*.typ text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+
+# Binary deliverables and fonts.
 *.pdf binary
 *.png binary
+*.jpg binary
 *.ttf binary
 licenses/* -whitespace
