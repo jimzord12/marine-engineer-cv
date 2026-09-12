@@ -13,7 +13,9 @@ Read before anything irreversible. Conventions, which do evolve, are in
   design study and the reference PDF, whether or not the engineer comparison
   uses it. Changing any of them is a design decision, recorded as an ADR in `docs/decisions/`, with a
   new frozen reference and a version bump on the PDF name.
-- `designs/*.typ` are frozen studies. Copy ideas out of them; do not edit them.
+- The four numbered studies and `shared.typ` under `designs/` are frozen.
+  Copy ideas out of them; do not edit them. Path-only updates during a move
+  are not edits.
 
 ## 2. New outputs, never overwrites
 

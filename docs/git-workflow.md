@@ -61,7 +61,7 @@ Linux and CI. Binary files are marked there too. Each CV PDF is about
 2. Build with `./scripts/build.ps1`, inspect both pages of every changed
    example.
 3. Copy the new PDF into `exports/` with the next version number and remove
-   the old one. Refresh the two preview PNGs in `docs/images/`.
+   the old one. Refresh the two preview PNGs in `docs/images/` at 96 dpi.
 4. If the engineer look changed on purpose, write an ADR, replace the frozen
    reference, regenerate `tests/baseline.json`, and tag the commit.
 5. Open the PR with the evidence folder named. Wait for approval to merge.
