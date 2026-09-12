@@ -19,7 +19,7 @@ needs none.
 
 ## Decision
 
-Every component under `src/` has this shape:
+Every component under `src/` takes this shape as it is migrated:
 
 ```typst
 #let component-name(ctx, data, prop: default, ..slots) = {
@@ -59,9 +59,8 @@ Approved by the owner in conversation on 2026-09-12, including ctx-first.
 - Migration is one module per commit in dependency order, leaves first,
   with the engineer pixel gate green after every commit. Order: primitives,
   sections, skills, education, certificates, experience, hero, page,
-  template. `data.typ`,
-  `theme.typ` and `pagination.typ` are pure functions, not components, and
-  are exempt.
+  template. `data.typ`, `theme.typ` and `pagination.typ` are pure
+  functions, not components, and are exempt.
 - The template stops threading layout slices and shrinks.
 - No new runtime, no code generation, no macro system. A component that
   follows the shape without the helpers is still compliant.

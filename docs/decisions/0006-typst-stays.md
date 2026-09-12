@@ -42,8 +42,8 @@ can adopt without a toolchain change.
 Typst remains the page engine. Web technology may appear only in front of
 it and only local-first: a data editor or a live preview through typst.ts
 running on the user's machine. It never replaces the renderer, and a hosted
-service stays out of scope (`docs/vision.md`). The component model the owner wants is built in
-Typst, see ADR 0008.
+service stays out of scope (`docs/vision.md`). The component model the
+owner wants is built in Typst, see ADR 0008.
 
 ## Consequences
 

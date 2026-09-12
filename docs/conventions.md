@@ -30,7 +30,8 @@ them. These evolve; the rules that do not are in `constitution.md`.
 - **Assert with a fix in the message.** `assert(..., message: "Name exceeds
   identity plate: adjust theme.sizes.name or hero.plate-width")`. The reader
   should not need the source to know what to change.
-- **No role branches.** Deck versus engine is data, artwork and copy. A
+- **No role branches.** Deck versus engine is data, artwork and copy; in
+  the tree today that is the captain and engineer packs and examples. A
   section that must differ is a slot or a data-selected variant, never a
   second template.
 - **Related pieces stay together.** Hero and its five helpers are one file.

@@ -29,8 +29,8 @@ from theme, layout, copy and options and pass that down instead; see below.
 
 ## The component contract
 
-Every component has the same shape, decided in ADR 0008: `ctx` first, the
-data it renders second, named props with defaults, content slots last.
+Every component will take the same shape, decided in ADR 0008: `ctx` first,
+the data it renders second, named props with defaults, content slots last.
 Inside, in order: validation with a fix in every message, the style block of
 `set` and `show` rules, one layout construct, composition of smaller
 components. Helpers will live in `src/component.typ` once migration starts.
@@ -50,7 +50,7 @@ what is per template:
 | Page plan validation (`pagination.typ`) | The page loop with its overflow assertion, today in `templates/flagship.typ` |
 | The verification runner and its checks | Frozen reference render and its pixel gate |
 | SVG recolouring and primitives | Artwork slot names the template expects |
-| Component helpers, theme validation, the suite | Copy defaults |
+| Component helpers, theme validation | Copy defaults |
 
 Deck and engine are never separate templates. A section that must differ is
 a slot or a data-selected variant. A section is promoted from a template to

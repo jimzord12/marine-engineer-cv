@@ -48,7 +48,8 @@ Top-level shape. Required keys are `identity` and `companies`.
   shown.
 - **Contract periods are not supported yet.** Deck careers are usually
   recorded as one date range per contract, not as service months. There is
-  no field for that, and the synopsis counts months, vessels and companies.
+  no per-contract field (`companies[].period` is company-level display
+  text), and the synopsis counts months, vessels and companies.
   This is roadmap item one in `docs/vision.md` (ADR 0007). Until it lands, a
   deck CV with contract periods uses the custom-composition path in
   `docs/guides/build-a-cv.md`, section 7. Do not convert calendar periods

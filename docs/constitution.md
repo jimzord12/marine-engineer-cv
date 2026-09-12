@@ -57,8 +57,9 @@ periods are never converted into service time.
 ## 7. Roles do not leak into components
 
 Deck and engine are variations of every template, expressed through the
-candidate JSON, the artwork pack and copy strings. No component branches on
-role. No template is forked by role. A section that must differ between the
+candidate JSON, the artwork pack and copy strings. In the tree today deck is
+the captain pack and example, engine the engineer pack and example. No
+component branches on role. No template is forked by role. A section that must differ between the
 two is a slot or a data-selected variant of the same template (ADR 0007).
 
 ## 8. Licences travel with their files
@@ -82,7 +83,8 @@ them: composes by hand, adds a one-off, extends a component locally. That is
 not a failure; it is how the framework learns what it is missing.
 
 Two conditions. First, every bypass is recorded in `docs/framework-gaps.md`
-in a few lines: what was needed, what was bypassed, what was built instead.
+in a few lines: what was needed, what was bypassed, what was built instead,
+and what the framework would need.
 Second, a bypass goes around components, never around rules: the frozen
 references, the fictional-content rule, the no-shrinking rule and the
 totals rule still hold. The gaps log feeds the rule of three; a gap that
