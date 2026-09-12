@@ -1,9 +1,11 @@
 # AGENTS.md — map of this repository
 
-Composable Typst library that renders two-page maritime CVs. One template,
+Composable Typst library that renders maritime CVs. Today one template,
 `flagship`, takes five independent inputs: candidate JSON, theme, artwork
-pack, layout profile and a durations switch. Read this file, then open only
-what your task needs.
+pack, layout profile and a durations switch. The product is a family of such
+templates on one shared core, each rendering deck and engine candidates
+(`docs/vision.md`, ADR 0007). Read this file and `docs/preferences.md`, then
+open only what your task needs.
 
 ## Where things are
 
@@ -42,20 +44,23 @@ typst compile --root . --font-path fonts examples/engineer.typ builds/scratch.pd
 
 Full text in `docs/constitution.md`. The short list:
 
-1. `reference/Marine-Engineer-CV-v11.pdf` and the hashes in `tests/baseline.json` are frozen. `examples/engineer.typ` must render pixel-identical to it. A change that breaks this needs a new frozen reference and an ADR.
+1. Every approved template has a frozen reference under `reference/` and a public example that must render pixel-identical to it; the hashes in `tests/baseline.json` are frozen with it. Today: `reference/Marine-Engineer-CV-v11.pdf` and `examples/engineer.typ`. A change that breaks this needs a new frozen reference and an ADR.
 2. Every output goes to a new folder. Scripts refuse to overwrite.
 3. Public content is fictional. Real candidate data lives in `private/`, which is ignored.
 4. No automatic font shrinking. Overflow fails loudly and the page plan is changed by hand.
 5. Evidence before "done": the suite output, a render, or a diff image.
+6. The framework is the happy path, not a cage. Go around a component when the work needs it and record the bypass in `docs/framework-gaps.md`. Never go around the frozen references, the fictional-content rule, the no-shrinking rule or the totals rule (calendar periods are never converted into service time).
 
 ## Documentation
 
 | Read | When |
 |---|---|
+| `docs/preferences.md` | Before every reply to the owner: who he is, how to talk to him, what he decides |
 | `docs/vision.md` | Deciding whether a feature belongs here |
 | `docs/architecture.md` | Before changing any module |
 | `docs/tech-stack.md` | Setting up a machine, or asking "why Typst" |
 | `docs/constitution.md` | Before anything irreversible |
+| `docs/framework-gaps.md` | Before planning framework work, and after any bypass of a component or template |
 | `docs/conventions.md` | Before writing code, docs or a commit message |
 | `docs/git-workflow.md` | Branching, commits, PRs, tags, what gets committed |
 | `docs/reference/candidate-schema.md` | Editing a candidate JSON |
@@ -79,7 +84,15 @@ that names the files to copy, the commands to run and the evidence to report.
   covers it. Say what you found in a line, then act.
 - Prefer the owning module over a parallel one. Related components stay in
   one small file.
+- Components in a migrated module follow the contract in
+  `docs/conventions.md` (ADR 0008): `ctx` first, data, named props, slots.
+  No module is migrated yet, so a new component matches the order already
+  used by its file. Deck and engine are never separate templates
+  (constitution section 7).
 - Every non-trivial change ends with `python tests/run.py` passing and the
   evidence path reported. A visual change also needs a rendered page.
+- If you had to go around a component, template or the contract to deliver
+  what the owner wanted, add an entry to `docs/framework-gaps.md` before
+  reporting done. A bypass is a lesson, not a fault.
 - Commit and push on the working branch freely. Never merge to `main`
   without explicit approval in the conversation.

@@ -5,6 +5,7 @@ It is exported from `lib.typ` and is not part of the locked `flagship`
 template.
 
 ```typst
+// From examples/. From private/<folder>/ the paths are ../../lib.typ and ../../themes/.
 #import "../lib.typ": skills-section, skills-layout
 #import "../themes/golden-blue.typ": theme
 

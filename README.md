@@ -1,9 +1,10 @@
 # Marine CV
 
-A composable [Typst](https://typst.app) library for two-page maritime CVs.
-One template, five independent inputs: candidate data, theme, artwork pack,
-layout profile and a durations switch. Swap any one without touching the
-others.
+A composable [Typst](https://typst.app) library for maritime CVs. Five
+independent inputs: candidate data, theme, artwork pack, layout profile and a
+durations switch. Swap any one without touching the others. One template
+today, Flagship; the library is built to carry a family of them, each
+rendering deck and engine officers (see [docs/vision.md](docs/vision.md)).
 
 All names, employers, service histories and qualifications in this repository
 are fictional. The portrait is AI-generated. This is a public template, not a

@@ -5,26 +5,44 @@ them. These evolve; the rules that do not are in `constitution.md`.
 
 ## Typst code
 
-- **Small functions that return content.** A component takes the data it
-  renders, the `theme`, and the geometry slice it needs, in that order.
-  Optional behaviour goes in named arguments with defaults.
+- **Small functions that return content, one shape (ADR 0008).** A
+  component takes `ctx` first, then the data it renders, then named props
+  with defaults, then content slots:
+
+  ```typst
+  #let name(ctx, data, prop: default, ..slots) = { ... }
+  ```
+
+  `ctx` bundles `theme`, `layout`, `copy` and `options`; it is built once by
+  the template and passed through untouched. Inside the function: validate,
+  then the style block of `set` and `show` rules, then layout, then compose.
+  Positional content arguments are children; named content arguments are
+  named slots.
+- **Migrate a module whole.** Until every module is migrated, an unmigrated
+  file keeps the old order (data, theme, geometry slice). A file never
+  mixes the two.
 - **Parent owns outer spacing, child owns internal layout.** Never add an
-  outer `v()` inside a component. Never reach into `layout` for a key that
-  belongs to a sibling.
+  outer `v()` inside a component. A component reads its own slice,
+  `ctx.layout.hero`, never a sibling's.
 - **Tokens in themes, geometry in layouts, pictures in artwork.** A number
   with a unit inside `src/` is a smell unless it is a structural constant
   such as a 2pt rule.
 - **Assert with a fix in the message.** `assert(..., message: "Name exceeds
   identity plate: adjust theme.sizes.name or hero.plate-width")`. The reader
   should not need the source to know what to change.
-- **No role branches.** Engineer versus captain is data and artwork.
+- **No role branches.** Deck versus engine is data, artwork and copy; in
+  the tree today that is the captain and engineer packs and examples. A
+  section that must differ is a slot or a data-selected variant, never a
+  second template.
 - **Related pieces stay together.** Hero and its five helpers are one file.
   A new file is justified by a new responsibility, not by line count.
 - **Paths from the project root** for assets: `/assets/...`. Compile with
   `--root .`.
-- **Naming:** kebab-case for functions, keys and files. Themes and artwork
+- **Naming:** kebab-case for functions, keys and files. Templates are named
+  after the design, `flagship`, never after a role. Themes and artwork
   packs are named after what they look like, not after a revision number.
-  Layouts carry the reference they reproduce, `flagship-v11`.
+  Layouts carry the template and the reference they reproduce,
+  `flagship-v11`.
 - **Comments** explain a decision or a trap, never restate the code. One line
   at the top of a file says what the file owns.
 
@@ -54,7 +72,7 @@ them. These evolve; the rules that do not are in `constitution.md`.
   one-line brief above it.
 - Decisions go in `docs/decisions/NNNN-title.md` using the template in
   `docs/decisions/README.md`. History goes in `docs/history.md`. Neither is
-  rewritten later; add a new entry.
+  rewritten later beyond an ADR's Status line; add a new entry.
 - No emojis.
 
 ## Commits

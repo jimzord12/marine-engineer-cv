@@ -6,9 +6,11 @@ Read before anything irreversible. Conventions, which do evolve, are in
 
 ## 1. Frozen references are contracts
 
-- `reference/Marine-Engineer-CV-v11.pdf` is the approved look.
-  `examples/engineer.typ` must render pixel-identical to it at 144 dpi with
-  identical normalised text on every page. `tests/run.py` enforces this.
+- Every approved template has a frozen reference render under `reference/`
+  and a public example that must render pixel-identical to it at 144 dpi
+  with identical normalised text on every page. `tests/run.py` enforces
+  this. Today that is Flagship: `reference/Marine-Engineer-CV-v11.pdf` and
+  `examples/engineer.typ`.
 - `tests/baseline.json` pins the SHA-256 of every asset, font, example JSON,
   design study and the reference PDF, whether or not the engineer comparison
   uses it. Changing any of them is a design decision, recorded as an ADR in `docs/decisions/`, with a
@@ -27,8 +29,10 @@ commit with a new version number.
 ## 3. Public content is fictional
 
 Names, employers, vessels, dates, certificates and the portrait are invented.
-Real candidate data lives in `private/`, which git ignores, with its own entry
-point importing `../lib.typ`. Certificate numbers, scans and passport details
+Real candidate data lives in `private/`, which git ignores, one folder per
+candidate with its own entry point. New entry points import
+`../../lib.typ`; two older ones import modules under `src/` directly and
+are migrated when next touched. Certificate numbers, scans and passport details
 never enter this repository.
 
 ## 4. The system does not lie to fit
@@ -52,8 +56,11 @@ periods are never converted into service time.
 
 ## 7. Roles do not leak into components
 
-No component branches on engineer versus captain. Role identity lives in the
-artwork pack and the candidate JSON only.
+Deck and engine are variations of every template, expressed through the
+candidate JSON, the artwork pack and copy strings. In the tree today deck is
+the captain pack and example, engine the engineer pack and example. No
+component branches on role. No template is forked by role. A section that must differ between the
+two is a slot or a data-selected variant of the same template (ADR 0007).
 
 ## 8. Licences travel with their files
 
@@ -66,3 +73,20 @@ The team optimises for the smallest commercially sound result: happy path,
 common failures, realistic regressions. No speculative abstraction, no
 opportunistic cleanup in a feature change. Push back in the conversation when
 a request seems wrong; proceed once the owner decides.
+
+## 10. The framework is the happy path, not a cage
+
+The core, the templates and the component contract are the preferred way
+to build. They are new and small, and they will not cover everything. When
+the work the owner wants cannot be done through them, an agent goes around
+them: composes by hand, adds a one-off, extends a component locally. That is
+not a failure; it is how the framework learns what it is missing.
+
+Two conditions. First, every bypass is recorded in `docs/framework-gaps.md`
+in a few lines: what was needed, what was bypassed, what was built instead,
+and what the framework would need.
+Second, a bypass goes around components, never around rules: the frozen
+references, the fictional-content rule, the no-shrinking rule and the
+totals rule still hold. The gaps log feeds the rule of three; a gap that
+appears again becomes a component, a slot or an extension. Decided by the
+owner on 2026-09-12, ADR 0009.

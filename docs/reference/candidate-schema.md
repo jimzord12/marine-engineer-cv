@@ -31,7 +31,8 @@ Top-level shape. Required keys are `identity` and `companies`.
 ## Field notes
 
 - **identity.portrait** is a path from the project root, or `null` for no
-  photo. For a real person use `/private/portrait.jpg`.
+  photo. For a real person use the path inside the candidate's folder,
+  `/private/<candidate-folder>/portrait.<ext>`, jpg or png.
 - **contacts** are ordered. Remove an entry to hide it. `href` is optional
   and makes the value a link. Every value must fit `layout.hero.contacts-width`
   or the hero fails with a message.
@@ -45,6 +46,14 @@ Top-level shape. Required keys are `identity` and `companies`.
   another rank or company. It counts once in the vessel total; months add.
 - **ships[].months** are whole service months. Required when durations are
   shown.
+- **Contract periods are not supported yet.** Deck careers are usually
+  recorded as one date range per contract, not as service months. There is
+  no per-contract field (`companies[].period` is company-level display
+  text), and the synopsis counts months, vessels and companies.
+  This is roadmap item one in `docs/vision.md` (ADR 0007). Until it lands, a
+  deck CV with contract periods uses the custom-composition path in
+  `docs/guides/build-a-cv.md`, section 7. Do not convert calendar periods
+  into months to make the data fit; constitution section 6 forbids it.
 - **certificates** accept either a four-string array in the order title,
   scope, issued, review, or an object with those keys.
 - **education_entries[].note** is optional and renders small under the

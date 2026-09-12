@@ -5,27 +5,32 @@ real data; everything below happens in the ignored `private/` folder.
 
 ## 1. Create the private workspace
 
+One folder per candidate, named after the person and role:
+
 ```text
-private/
-  jane-doe.json          candidate data
-  jane-doe.typ           entry point
-  portrait.jpg           authorised photograph
+private/jane-doe-second-engineer/
+  README.md              how to build, what was decided, where the evidence is
+  candidate.json         candidate data
+  cv.typ                 entry point
+  portrait.<ext>         authorised photograph, jpg or png
+  reference.pdf          the approved render, once there is one
+  presentation.json      only for the custom path in section 7: data the schema cannot hold
 ```
 
-`private/jane-doe.typ`. The shipped layout's page plan assumes the example's
-six companies, so a real candidate always overrides `pages` with their own
+`cv.typ`. The shipped layout's page plan assumes the example's six
+companies, so a real candidate always overrides `pages` with their own
 company indices, zero-based, in JSON order:
 
 ```typst
-#import "../lib.typ": flagship
-#import "../themes/golden-blue.typ": theme
-#import "../artwork/engineer.typ": artwork
-#import "../layouts/flagship-v11.typ": layout as base
+#import "../../lib.typ": flagship
+#import "../../themes/golden-blue.typ": theme
+#import "../../artwork/engineer.typ": artwork
+#import "../../layouts/flagship-v11.typ": layout as base
 #let layout = (..base, pages: (
   (companies: (0, 1)),
   (companies: (2,), synopsis: true, certificates: true, education: true),
 ))
-#let candidate = json("jane-doe.json")
+#let candidate = json("candidate.json")
 #show: flagship.with(candidate: candidate, theme: theme, artwork: artwork, layout: layout,
   show-vessel-durations: true)
 ```
@@ -40,7 +45,7 @@ render. Splitting one large company across pages is shown in
 Copy `content/engineer-example.json` or `content/captain-example.json` and
 replace every value. Field meanings and error messages are in
 `../reference/candidate-schema.md`. Set `identity.portrait` to
-`/private/portrait.jpg` or `null`.
+`/private/jane-doe-second-engineer/portrait.<ext>` or `null`.
 
 If you do not know months per vessel, set `show-vessel-durations: false` and
 give each company a `service-months` total instead.
@@ -48,13 +53,13 @@ give each company a `service-months` total instead.
 ## 3. Compile
 
 ```powershell
-typst compile --root . --font-path fonts private/jane-doe.typ builds/jane-doe-01.pdf
+typst compile --root . --font-path fonts private/jane-doe-second-engineer/cv.typ builds/jane-doe-01.pdf
 ```
 
 Use a new file name each time. For live editing:
 
 ```powershell
-typst watch --root . --font-path fonts private/jane-doe.typ builds/jane-doe-preview.pdf
+typst watch --root . --font-path fonts private/jane-doe-second-engineer/cv.typ builds/jane-doe-preview.pdf
 ```
 
 ## 4. Fix what does not fit
@@ -79,3 +84,36 @@ to.
 
 Nothing under `private/` is tracked. Do not copy renders into `exports/`.
 Do not commit certificate numbers, scans or passport details anywhere.
+
+## 7. When the template does not fit
+
+Some real CVs cannot go through `flagship` yet. The known causes are
+recorded in `../framework-gaps.md`: a career recorded as contract periods
+rather than service months (see the note in
+`../reference/candidate-schema.md`), an approved design that needs a
+three-column certificate table, and a skills block the template has no
+slot for. Until the template supports these, compose the page by hand from
+the same public exports:
+
+```typst
+#import "../../lib.typ": (document-shell, page-header, hero, profile-summary,
+  section-heading, skills-section)
+// then place the hero, the sections and your own table below
+```
+
+The skills block is documented in `../reference/skills-component.md`; its
+example imports `../lib.typ` because it sits under `examples/`, so use
+`../../lib.typ` from a private folder.
+
+Rules for this path:
+
+- Import from `lib.typ`; never copy library code into the workspace.
+- Keep the candidate JSON valid against the schema. Put data the schema
+  cannot hold, such as contract periods, in a separate `presentation.json`
+  beside it. Never invent months from calendar periods.
+- Keep the approved render as `reference.pdf` in the folder and record in
+  the folder's `README.md` why the custom composition exists and what it
+  matched. Once the template can express the data, the entry point is
+  rewritten to use `flagship` and compared against that reference.
+- Add an entry to `docs/framework-gaps.md` saying what you needed, what
+  you went around and what you built. That is how the gap gets closed.

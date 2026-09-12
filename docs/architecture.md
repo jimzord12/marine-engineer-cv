@@ -23,7 +23,42 @@ everything geometric from the layout, every picture from the artwork pack.
 | Display switch | `show-vessel-durations` on `flagship` | Show or hide every vessel duration at once without moving columns |
 
 The template is the only place that sees all five. Children receive only the
-slice they need, so a hero function gets `layout.hero`, not `layout`.
+slice they need, so a hero function gets `layout.hero`, not `layout`. Once
+the ADR 0008 migration starts, the template will build one `ctx` dictionary
+from theme, layout, copy and options and pass that down instead; see below.
+
+## The component contract
+
+Every component will take the same shape, decided in ADR 0008: `ctx` first,
+the data it renders second, named props with defaults, content slots last.
+Inside, in order: validation with a fix in every message, the style block of
+`set` and `show` rules, one layout construct, composition of smaller
+components. Helpers will live in `src/component.typ` once migration starts.
+Modules are migrated to this shape one per commit; an unmigrated module
+keeps the older order (data, theme, geometry slice) until its turn. As of
+this writing no module has been migrated.
+
+## One core, many templates
+
+Flagship is the first template of a family (ADR 0007). What is shared and
+what is per template:
+
+| Shared core | Per template |
+|---|---|
+| Candidate contract and schema, normalisation, totals (`data.typ`) | Section components: hero, experience, synopsis, certificates, education, skills |
+| Page shell, header, footer, backgrounds (`page.typ`) | Layout profiles and page plans |
+| Page plan validation (`pagination.typ`) | The page loop with its overflow assertion, today in `templates/flagship.typ` |
+| The verification runner and its checks | Frozen reference render and its pixel gate |
+| SVG recolouring and primitives | Artwork slot names the template expects |
+| Component helpers, theme validation | Copy defaults |
+
+Deck and engine are never separate templates. A section that must differ is
+a slot or a data-selected variant. A section is promoted from a template to
+the core when a third template needs it unchanged. Today `src/` holds the
+shared core and Flagship's sections side by side, with the Flagship
+composition already under `src/templates/flagship.typ`. The second template
+adds `src/core/` and turns `src/templates/flagship.typ` into
+`src/templates/flagship/`. Not before.
 
 ## Module map
 

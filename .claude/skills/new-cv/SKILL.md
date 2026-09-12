@@ -9,8 +9,11 @@ Follow `docs/guides/build-a-cv.md`. This skill is the checklist.
 
 ## Decide the destination
 
-- Real person: everything under `private/` (ignored). Never under
-  `content/` or `examples/`.
+- Real person: one folder per candidate under `private/` (ignored), named
+  after the person and role: `private/<name>-<role>/` with `candidate.json`,
+  `cv.typ`, `portrait.<ext>`, a `README.md` recording what was decided and
+  where the evidence is, and `reference.pdf` once a render is approved.
+  Never under `content/` or `examples/`.
 - New public example: fictional data under `content/<name>-example.json`,
   entry under `examples/<name>.typ`, and add it to `scripts/build.ps1` and
   the compile list in `tests/run.py`.
@@ -27,7 +30,13 @@ Follow `docs/guides/build-a-cv.md`. This skill is the checklist.
    artwork (`artwork/`), the durations switch, and import the layout
    `as base` with a `pages` override that lists this candidate's company
    indices. The shipped plan assumes six companies and fails with
-   `Page plan company index out of bounds` for any other count.
+   `Page plan company index out of bounds` for fewer, or
+   `Page plan must cover each vessel row once, in candidate order` for more.
+   If the data does not fit `flagship` (the known cases are in
+   `docs/framework-gaps.md`: contract periods instead of months, a
+   three-column certificate table, a skills block), use the
+   custom-composition path in guide section 7, record the reason in the
+   folder's `README.md`, and add an entry to `docs/framework-gaps.md`.
 4. Compile to a new file under `builds/`:
    `typst compile --root . --font-path fonts <entry> builds/<name>-01.pdf`.
 5. On a fit or overflow error, apply the fix the message names. Page plan
