@@ -1,0 +1,73 @@
+{
+  "name": "ALEX MORGAN",
+  "role": "Marine & Mechanical Engineer",
+  "location": "Rotterdam, Netherlands",
+  "email": "alex.morgan@example.com",
+  "phone": "+00 000 000 000",
+  "availability": "Available by arrangement",
+  "summary": "Marine engineer with a practical focus on propulsion, auxiliary machinery and planned maintenance. Combines disciplined watchkeeping with hands-on fault diagnosis, overhaul preparation and clear technical reporting.",
+  "jobs": [
+    {
+      "role": "Second Engineer",
+      "company": "Northline Marine",
+      "vessel": "MV Meridian / Product tanker",
+      "dates": "2023 - 2026",
+      "plant": "MAN B&W 6S50ME-B / 9,480 kW",
+      "bullets": [
+        "Coordinated planned maintenance for propulsion and auxiliaries, aligning work with vessel schedules and permit requirements.",
+        "Prepared dry-dock work scopes, tracked spare parts and supported class survey close-out."
+      ]
+    },
+    {
+      "role": "Third Engineer",
+      "company": "Pelagic Shipping",
+      "vessel": "MV North Passage / Bulk carrier",
+      "dates": "2020 - 2023",
+      "plant": "MAN B&W 6S60MC-C / 13,560 kW",
+      "bullets": [
+        "Maintained diesel generators, fuel separators and compressed-air systems; recorded defects and corrective actions.",
+        "Investigated recurring cooling-system faults using operating trends and structured inspections."
+      ]
+    },
+    {
+      "role": "Engineering Cadet",
+      "company": "Blue Current Fleet",
+      "vessel": "MV Solstice / Ro-Pax ferry",
+      "dates": "2018 - 2020",
+      "plant": "Wartsila 8L46 / twin-engine plant",
+      "bullets": [
+        "Supported engine-room rounds, pump overhauls and safety drills under senior engineer supervision."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Propulsion",
+      "items": "Two-stroke diesel / fuel injection / lubrication"
+    },
+    {
+      "title": "Auxiliaries",
+      "items": "Generators / purifiers / pumps / compressors"
+    },
+    {
+      "title": "Maintenance",
+      "items": "PMS / fault finding / dry-dock preparation"
+    },
+    {
+      "title": "Technical tools",
+      "items": "AutoCAD / Excel / technical drawings"
+    }
+  ],
+  "qualifications": [
+    "Second Engineer CoC - STCW III/2",
+    "STCW safety training",
+    "Engine-room resource management",
+    "ENG1 medical - verify before use"
+  ],
+  "education": [
+    "BEng Marine Engineering",
+    "Example Maritime Institute / 2018"
+  ],
+  "languages": "English / professional working proficiency",
+  "note": "FICTIONAL SAMPLE - DESIGN PROTOTYPE"
+}
