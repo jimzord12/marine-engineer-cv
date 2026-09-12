@@ -18,6 +18,13 @@
     "assets/workshop-background-2.svg": "5d6c3295c40a0588da8826ff2b10bdaef6634c5d1e599ee46054ce718679e3c0",
     "content/captain-example.json": "1bc1183775dd795d2eaecc5208ff9bf6d9016216028be17c651e1fc1a12ac4bd",
     "content/engineer-example.json": "010b4c674912be677c919286d70ca3de71c096cfebd8880129fa0bc93f85d4cf",
+    "designs/01-soundings.typ": "aac359ad41e2ab537a3fb894c93f77dfef43bbe34c8481b555c567f49a1e534a",
+    "designs/02-engine-room.typ": "a673f079ede73dcfb6e2b9ff3806c00ad46160b8f7d6f51c26c7a3fa16ac18a8",
+    "designs/03-horizon.typ": "67d092a3fdbb5f23cf99a865734a4f2cf0de4e80d128d11f821765142329952d",
+    "designs/11-flagship-balance.typ": "19ab3387c8cbb7c2b6c152d04e8f71ece580e2ac047b418da0040d516215913f",
+    "designs/content/example.json": "47534107f9cbe4053454ff18a168442b09240cea3b7919ce14a1701ea91f343e",
+    "designs/content/extended-company-example.json": "4662680b9ae685f911ccdebeddb1fc67fae82846c1e918ecd72f4431550e6a88",
+    "designs/shared.typ": "77f2c874601df1aabcb9140f579fdbdf3acad6c1f616d2058d8675832168a21d",
     "fonts/BarlowCondensed-SemiBold.ttf": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
     "fonts/SourceSans3[wght].ttf": "042fe2cc0b933e328410d7acbd0aa6a1873dca5aef81875f4bc214b08825c7b9",
     "reference/Marine-Engineer-CV-v11.pdf": "9efd054b6fd376495a5eb3967bf0b833f24a8d8d09844d43dd253e3bd17187bf"

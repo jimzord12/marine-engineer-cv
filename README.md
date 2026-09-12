@@ -64,7 +64,7 @@ to change margins and which companies sit on which page.
 python tests/run.py
 ```
 
-Needs Python with `pymupdf` and `pillow`. The suite compiles 22 cases and
+Needs Python with `pymupdf` and `pillow`. The suite compiles 24 cases and
 proves the engineer example renders pixel-identical to the frozen
 [v11 reference](reference/Marine-Engineer-CV-v11.pdf). Details in
 [docs/reference/verification.md](docs/reference/verification.md).

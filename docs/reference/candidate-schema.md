@@ -38,9 +38,9 @@ Top-level shape. Required keys are `identity` and `companies`.
 - **companies[].id** is optional and defaults to the lower-cased name with
   spaces replaced by hyphens. Ids must be unique.
 - **companies[].period** is display text. It is never parsed.
-- **companies[].service-months** is the company total when per-vessel
-  months are unknown. Allowed only when durations are hidden. If every vessel
-  also has `months`, the two must agree.
+- **companies[].service-months** is the company total. Use it when
+  per-vessel months are unknown, together with hidden durations. If every
+  vessel also has `months`, the two must agree.
 - **ships[].id** stays the same when the same vessel appears again under
   another rank or company. It counts once in the vessel total; months add.
 - **ships[].months** are whole service months. Required when durations are
@@ -76,6 +76,7 @@ you still want.
 
 | Message | Fix |
 |---|---|
+| `Candidate requires identity` or `... companies` | Add the missing top-level key |
 | `Visible vessel durations require months: <ship>` | Add `months`, or hide durations and give `service-months` |
 | `Company service-months does not match vessel months` | Make the total equal the sum |
 | `Company IDs must be unique` | Give the second company a different `id` |

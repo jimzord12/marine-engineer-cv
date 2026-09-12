@@ -37,6 +37,9 @@ def main():
         return pdf
 
     check_frozen()
+    compile_case('configuration', 'tests/fixtures/configuration.typ')
+    content = compile_case('content', 'tests/fixtures/content.typ')
+    assert verify(content, pages=1, output=out / 'content-check')['passed']
     skills = compile_case('skills', 'tests/fixtures/skills.typ')
     assert verify(skills, pages=1, output=out / 'skills-check')['passed']
     with fitz.open(skills) as doc:

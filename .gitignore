@@ -23,3 +23,6 @@ exports/prototypes/
 exports/review/
 exports/local/
 exports/0*.pdf
+
+# Keep the folder so documented compile commands work on a fresh clone.
+!builds/.gitkeep

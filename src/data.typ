@@ -39,8 +39,8 @@
     (title: c.at(0), scope: c.at(1), issued: c.at(2), review: c.at(3))
   } else { c })
   (identity: identity, contacts: contacts, profile: raw.at("profile", default: ""), companies: companies,
-    certificates: certificates, education: raw.at("education_entries", default: raw.at("education", default: ())),
-    languages: raw.at("language_entries", default: raw.at("languages", default: ())),
+    certificates: certificates, education: raw.at("education_entries", default: ()),
+    languages: raw.at("language_entries", default: ()),
     disclosure: raw.at("disclosure", default: "FICTIONAL CANDIDATE & AI PORTRAIT / DESIGN STUDY"),
     copy: raw.at("copy", default: (experience: "Experience", experience-subtitle: "Company / vessel type / vessel",
       continuation: "Continued / earlier companies", combined: "Combined service", total: "Total experience",

@@ -34,7 +34,7 @@ parse.
    does not fit the plate: each fails with a message naming the fix.
 4. **Evidence, not assurance.** A change is done when the suite passes and a
    render exists in a fresh folder.
-5. **Small enough to read.** The whole library is under 500 lines of Typst.
+5. **Small enough to read.** The whole library is about 500 lines of Typst.
    Keep it that way.
 
 ## Direction

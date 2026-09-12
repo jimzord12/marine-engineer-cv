@@ -33,6 +33,8 @@ and per-check folders with `result.json` and, on a raster mismatch, a
 
 | Fixture | Cases |
 |---|---|
+| `configuration.typ` | Theme validates; frozen geometry constants (hero 77mm, page-two bottom margin 11mm, backdrop 94mm) |
+| `content.typ` | Experience, synopsis, certificates and education compose on one page |
 | `data.typ` | Duration parts, totals 138 months / 23 vessels / 6 companies, vessel dedup, company-only months; rejects missing months, mismatched totals, negative months |
 | `components.typ` | Hero renders with and without portrait or contacts; rejects a name or email that does not fit |
 | `options.typ` | Company-only months, all optional fields empty, a long vessel name whose duration wraps, with and without durations |

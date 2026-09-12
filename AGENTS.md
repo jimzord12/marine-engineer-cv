@@ -14,7 +14,7 @@ what your task needs.
 | `themes/` | Visual tokens only: colours, fonts, sizes, tracking, leading, SVG colour map | Adding a look |
 | `artwork/` | Artwork packs: which SVG goes in which slot, plus offsets | Adding a role's illustrations |
 | `layouts/` | Geometry and page plan: margins, gaps, widths, which companies go on which page | Fixing page balance |
-| `content/` | Fictional candidate JSON, one per example | Changing example data |
+| `content/` | Fictional candidate JSON, one per candidate | Changing example data |
 | `examples/` | Seven-line entry points that wire the five inputs together | Adding an example |
 | `assets/`, `fonts/`, `licenses/` | Original SVG artwork, bundled OFL fonts, licence notices | Adding art or a font |
 | `tests/` | `run.py` runner, `verify.py` PDF checks, `baseline.json` hash manifest, `fixtures/*.typ` compile cases | Changing behaviour |
