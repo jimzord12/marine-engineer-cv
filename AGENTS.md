@@ -81,9 +81,11 @@ that names the files to copy, the commands to run and the evidence to report.
   covers it. Say what you found in a line, then act.
 - Prefer the owning module over a parallel one. Related components stay in
   one small file.
-- New or migrated components follow the contract in `docs/conventions.md`
-  (ADR 0008): `ctx` first, data, named props, slots. Deck and engine are
-  never separate templates (constitution section 7).
+- Components in a migrated module follow the contract in
+  `docs/conventions.md` (ADR 0008): `ctx` first, data, named props, slots.
+  No module is migrated yet, so a new component matches the order already
+  used by its file. Deck and engine are never separate templates
+  (constitution section 7).
 - Every non-trivial change ends with `python tests/run.py` passing and the
   evidence path reported. A visual change also needs a rendered page.
 - Commit and push on the working branch freely. Never merge to `main`

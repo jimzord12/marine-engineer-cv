@@ -29,8 +29,8 @@ commit with a new version number.
 ## 3. Public content is fictional
 
 Names, employers, vessels, dates, certificates and the portrait are invented.
-Real candidate data lives in `private/`, which git ignores, with its own entry
-point importing `../lib.typ`. Certificate numbers, scans and passport details
+Real candidate data lives in `private/`, which git ignores, one folder per
+candidate with its own entry point importing `../../lib.typ`. Certificate numbers, scans and passport details
 never enter this repository.
 
 ## 4. The system does not lie to fit

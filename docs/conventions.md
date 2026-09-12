@@ -7,12 +7,17 @@ them. These evolve; the rules that do not are in `constitution.md`.
 
 - **Small functions that return content, one shape (ADR 0008).** A
   component takes `ctx` first, then the data it renders, then named props
-  with defaults, then content slots: `#let name(ctx, data, prop: default,
-  ..slots)`. `ctx` bundles `theme`, `layout`, `copy` and `options`; it is
-  built once by the template and passed through untouched. Inside the
-  function: validate, then the style block of `set` and `show` rules, then
-  layout, then compose. Positional content arguments are children; named
-  content arguments are named slots.
+  with defaults, then content slots:
+
+  ```typst
+  #let name(ctx, data, prop: default, ..slots) = { ... }
+  ```
+
+  `ctx` bundles `theme`, `layout`, `copy` and `options`; it is built once by
+  the template and passed through untouched. Inside the function: validate,
+  then the style block of `set` and `show` rules, then layout, then compose.
+  Positional content arguments are children; named content arguments are
+  named slots.
 - **Migrate a module whole.** Until every module is migrated, an unmigrated
   file keeps the old order (data, theme, geometry slice). A file never
   mixes the two.
@@ -66,7 +71,7 @@ them. These evolve; the rules that do not are in `constitution.md`.
   one-line brief above it.
 - Decisions go in `docs/decisions/NNNN-title.md` using the template in
   `docs/decisions/README.md`. History goes in `docs/history.md`. Neither is
-  rewritten later; add a new entry.
+  rewritten later beyond an ADR's Status line; add a new entry.
 - No emojis.
 
 ## Commits

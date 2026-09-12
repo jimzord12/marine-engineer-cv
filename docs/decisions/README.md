@@ -1,8 +1,9 @@
 # Architecture decision records
 
 One file per decision that shapes the code and is expensive to reverse.
-Numbered, never edited after acceptance; a later decision supersedes an
-earlier one by saying so.
+Numbered. After acceptance only the Status line changes, to record that a
+later decision amends or supersedes this one; the later decision says so in
+its own Status line and Context.
 
 Template:
 
@@ -10,7 +11,8 @@ Template:
 # NNNN. Title
 
 Date: YYYY-MM-DD
-Status: Accepted | Superseded by NNNN
+Status: Accepted | Amended by NNNN | Superseded by NNNN
+(a short reason may follow the status word)
 
 ## Context
 What was true and what forced a choice.
@@ -25,7 +27,7 @@ What becomes easier, what becomes harder, what the suite enforces.
 | ADR | Decision |
 |---|---|
 | [0001](0001-freeze-v11-as-reference.md) | The approved v11 render is a frozen, pixel-exact contract |
-| [0002](0002-five-independent-inputs.md) | One template, five independent inputs |
+| [0002](0002-five-independent-inputs.md) | Five independent inputs. Its "one template" clause is amended by 0007 |
 | [0003](0003-explicit-pagination.md) | Page allocation is explicit and validated, never automatic |
 | [0004](0004-hidden-durations-keep-geometry.md) | Hiding durations reserves geometry and emits no text |
 | [0005](0005-restructure-for-agents.md) | Prune history, keep four studies, English docs, agent entry files |

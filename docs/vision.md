@@ -1,7 +1,7 @@
 # Vision
 
 Read this when deciding whether a feature belongs in the project. Owned by
-the product owner; last confirmed 2026-09-13.
+the product owner; last confirmed 2026-09-12.
 
 ## What this is
 
@@ -34,7 +34,9 @@ contract, then freezes an approved render.
    know about each other, it is in the wrong place.
 2. **Deck and engine are variations, never forks.** A template renders both
    roles from data, artwork and copy. A section that must differ is a slot
-   or a data-selected variant of the same template.
+   or a data-selected variant of the same template. In the tree today the
+   deck variation is the captain artwork pack and example; the engine
+   variation is the engineer pack and example.
 3. **Approved looks are frozen.** Every approved template has a locked
    reference render, and the suite proves the library reproduces it on
    every run.
@@ -52,14 +54,17 @@ In priority order. Each item is committed when the owner opens it; none is
 started on an agent's initiative.
 
 1. **Deck data support.** Real deck careers are recorded as contract
-   periods, not service months. The schema, the synopsis metrics and the
-   certificate table must express what deck officers actually have, so a
-   real deck CV fits the template instead of bypassing it. See ADR 0007.
+   periods, not service months. The schema must hold them, the synopsis
+   must take its metrics from data, the certificate table must take its
+   columns from data, and the skills section must be available inside the
+   template, so a real deck CV fits the template instead of bypassing it.
+   See ADR 0007.
 2. **The component contract.** Migrate the Flagship modules to the shape in
    ADR 0008, one module per commit under the pixel gate.
 3. **A second template.** A named design with its own sections and frozen
    reference, likely grown from one of the studies under `designs/`. This
-   is when `src/` splits into core and per-template folders.
+   is when `src/core/` appears and `src/templates/flagship.typ` becomes a
+   folder.
 4. **Cadet layout.** A one-page layout profile for cadets and short
    careers, for every template.
 5. **More themes.** Two to four per template.

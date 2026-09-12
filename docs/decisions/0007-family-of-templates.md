@@ -1,6 +1,6 @@
 # 0007. A family of templates over one shared core
 
-Date: 2026-09-13
+Date: 2026-09-12
 Status: Accepted. Amends 0002: the five inputs stand, "one template" does not.
 
 ## Context
@@ -36,10 +36,11 @@ only fits because its data carries service months.
 - **Promotion by the rule of three.** A section moves from a template into
   the core when a third template needs it unchanged. Not before.
 - **Folder split when the second template starts.** `src/core/` for the
-  shared layers, `src/templates/<name>/` per template. Until then the flat
-  `src/` is Flagship plus core.
+  shared layers, `src/templates/<name>/` per template. Until then `src/`
+  holds the core and Flagship's sections side by side, with the Flagship
+  composition already under `src/templates/flagship.typ`.
 
-Approved by the owner in conversation on 2026-09-13.
+Approved by the owner in conversation on 2026-09-12.
 
 ## Consequences
 

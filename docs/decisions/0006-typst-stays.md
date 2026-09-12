@@ -1,6 +1,6 @@
 # 0006. Typst stays as the page engine
 
-Date: 2026-09-13
+Date: 2026-09-12
 Status: Accepted
 
 ## Context
@@ -33,8 +33,9 @@ Findings:
 - **typst.ts** runs Typst inside Node or the browser, so a web front end can
   sit in front of the existing library without replacing it.
 
-Typst 0.15 added variable fonts and combined PDF/A and PDF/UA export, both
-of which this library uses or benefits from.
+Typst 0.15 added variable fonts, which this library already uses for two of
+its three bundled families, and combined PDF/A and PDF/UA export, which it
+can adopt without a toolchain change.
 
 ## Decision
 
@@ -49,6 +50,5 @@ Typst, see ADR 0008.
   toolchain drifts with a browser release.
 - Fine-grained control is delivered by conventions on top of Typst
   functions, not by a new runtime.
-- The full comparison is recorded in the research memo of 2026-09-12,
-  "Typst or Web for the Marine CV". Re-open this decision only if the
-  requirements above change.
+- Re-open this decision only if the requirements listed in the context
+  change.

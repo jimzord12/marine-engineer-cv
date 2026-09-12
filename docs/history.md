@@ -63,7 +63,7 @@ documentation set: vision, architecture, tech stack, constitution,
 conventions, git workflow, per-concept references, ADRs, a JSON Schema,
 project skills and CI. The engineer example still matches v11 exactly.
 
-## 2026-09-12 to 13 — product direction set
+## 2026-09-12 — product direction set
 
 The owner considered replacing Typst with React or headless Chromium for
 finer control and a component model he can read. A research pass against
@@ -75,8 +75,9 @@ The owner stated the product: several named templates, each rendering deck
 and engine candidates, each with two to four themes, plus a one-page layout
 for cadets. The restructure docs had inferred "one template" as a principle
 and were corrected (ADR 0007). The two real CVs produced so far both bypass
-the template because deck careers are recorded as contract periods the
-schema cannot hold; that became roadmap item one.
+the template: the deck CV because contract periods are not in the schema,
+the engineer CV because its approved design uses a three-column certificate
+table. Closing that gap became roadmap item one.
 
 A React-inspired component contract was accepted, ctx-first, with slots and
 scoped style blocks (ADR 0008). Migration of the Flagship modules to it is

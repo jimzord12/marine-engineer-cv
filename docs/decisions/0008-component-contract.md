@@ -1,6 +1,6 @@
 # 0008. One component contract, inspired by React
 
-Date: 2026-09-13
+Date: 2026-09-12
 Status: Accepted. Replaces the signature rule in `docs/conventions.md`.
 
 ## Context
@@ -49,7 +49,7 @@ Every component under `src/` has this shape:
 - **Fixtures.** Each component gets one case under `tests/fixtures/` that
   renders it alone. This is the Storybook equivalent.
 
-Approved by the owner in conversation on 2026-09-13, including ctx-first.
+Approved by the owner in conversation on 2026-09-12, including ctx-first.
 
 ## Consequences
 
@@ -57,7 +57,9 @@ Approved by the owner in conversation on 2026-09-13, including ctx-first.
   whole; a file never mixes the old and new order.
 - Migration is one module per commit, smallest first, with the engineer
   pixel gate green after every commit. Order: primitives, sections, skills,
-  education, certificates, experience, hero, page, template.
+  education, certificates, experience, hero, page, template. `data.typ`,
+  `theme.typ` and `pagination.typ` are pure functions, not components, and
+  are exempt.
 - The template stops threading layout slices and shrinks.
 - No new runtime, no code generation, no macro system. A component that
   follows the shape without the helpers is still compliant.

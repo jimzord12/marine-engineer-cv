@@ -22,9 +22,10 @@ everything geometric from the layout, every picture from the artwork pack.
 | Layout | `layouts/*.typ` | Margins, hero geometry, column widths, gaps, spacing scale, page plan, `anchor-education` |
 | Display switch | `show-vessel-durations` on `flagship` | Show or hide every vessel duration at once without moving columns |
 
-The template is the only place that sees all five. It builds one `ctx`
-dictionary from theme, layout, copy and options and passes it down;
-children read their own slice, `ctx.layout.hero`, never a sibling's.
+The template is the only place that sees all five. Children receive only the
+slice they need, so a hero function gets `layout.hero`, not `layout`. Once
+the ADR 0008 migration starts, the template will build one `ctx` dictionary
+from theme, layout, copy and options and pass that down instead; see below.
 
 ## The component contract
 
@@ -52,9 +53,11 @@ what is per template:
 
 Deck and engine are never separate templates. A section that must differ is
 a slot or a data-selected variant. A section is promoted from a template to
-the core when a third template needs it unchanged. When the second template
-starts, `src/` splits into `src/core/` and `src/templates/<name>/`; until
-then the flat `src/` below is Flagship plus core.
+the core when a third template needs it unchanged. Today `src/` holds the
+shared core and Flagship's sections side by side, with the Flagship
+composition already under `src/templates/flagship.typ`. The second template
+adds `src/core/` and turns `src/templates/flagship.typ` into
+`src/templates/flagship/`. Not before.
 
 ## Module map
 

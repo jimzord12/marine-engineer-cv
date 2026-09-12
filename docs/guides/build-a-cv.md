@@ -14,6 +14,7 @@ private/jane-doe-second-engineer/
   cv.typ                 entry point
   portrait.jpg           authorised photograph
   reference.pdf          the approved render, once there is one
+  presentation.json      only for the custom path in section 7: data the schema cannot hold
 ```
 
 `cv.typ`. The shipped layout's page plan assumes the example's six
@@ -86,22 +87,26 @@ Do not commit certificate numbers, scans or passport details anywhere.
 
 ## 7. When the template does not fit
 
-Some real CVs cannot go through `flagship` yet. The known case is a deck
-officer whose career is recorded as contract periods rather than service
-months; see the note in `../reference/candidate-schema.md`. Until the
-template supports that data, compose the page by hand from the same modules:
+Some real CVs cannot go through `flagship` yet. Two causes are known: a
+career recorded as contract periods rather than service months (see the
+note in `../reference/candidate-schema.md`), and an approved design that
+needs a three-column certificate table, which the template's four-column
+table cannot produce. Until the template supports these, compose the page
+by hand from the same public exports:
 
 ```typst
-#import "../../src/page.typ": document-shell, page-header
-#import "../../src/hero.typ": hero
-#import "../../src/sections.typ": profile-summary, section-heading
-#import "../../src/skills.typ": skills-section
+#import "../../lib.typ": document-shell, page-header, hero, profile-summary,
+  section-heading, skills-section
 // then place hero, sections and your own table in cv.typ
 ```
 
+The skills block is documented in `../reference/skills-component.md`; its
+example imports `../lib.typ` because it sits under `examples/`, so use
+`../../lib.typ` from a private folder.
+
 Rules for this path:
 
-- Import from `src/` modules; never copy library code into the workspace.
+- Import from `lib.typ`; never copy library code into the workspace.
 - Keep the candidate JSON valid against the schema. Put data the schema
   cannot hold, such as contract periods, in a separate `presentation.json`
   beside it. Never invent months from calendar periods.
