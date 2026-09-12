@@ -1,0 +1,9 @@
+[package]
+name = "marine-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dimitrios Stamatakis"]
+license = "MIT"
+description = "Composable Typst CV library for maritime roles: one template, independent candidate data, theme, artwork pack and layout profile."
+compiler = "0.15.1"
+exclude = ["exports", "reference", "docs", "tests", "scripts", ".claude", ".github"]

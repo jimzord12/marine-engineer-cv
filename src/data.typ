@@ -30,16 +30,9 @@
 )
 
 #let normalize-candidate(raw) = {
-  let legacy = not ("identity" in raw)
-  let identity = if legacy {
-    (name: raw.name, rank: raw.rank, portrait: "/assets/fictional-engineer.png",
-      portrait-alt: "AI-generated portrait of the fictional candidate")
-  } else { raw.identity }
-  let contacts = if legacy {
-    (left: ((label: "Based in", value: raw.location), (label: "Telephone", value: raw.phone), (label: "Nationality", value: raw.nationality)),
-      right: ((label: "Email", value: raw.email, href: "mailto:" + raw.email),
-        (label: "Discipline", value: "Marine / mechanical"), (label: "Rank", value: "Second Engineer")))
-  } else { raw.at("contacts", default: (left: (), right: ())) }
+  for key in ("identity", "companies") { assert(key in raw, message: "Candidate requires " + key) }
+  let identity = raw.identity
+  let contacts = raw.at("contacts", default: (left: (), right: ()))
   let companies = raw.companies.map(c => (..c, id: c.at("id", default: lower(c.name).replace(" ", "-"))))
   let certificates = raw.at("certificates", default: ()).map(c => if type(c) == array {
     assert.eq(c.len(), 4, message: "Certificate record requires four values")

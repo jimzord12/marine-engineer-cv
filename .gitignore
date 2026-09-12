@@ -1,16 +1,17 @@
+# Real candidate data and private entry points never enter the public repo.
 private/
+
+# Build and test outputs. Every run writes to a new timestamped folder here.
+builds/
+
+# Local scratch renders at the repo root.
+/*.pdf
+/*.png
+
+# Python
 __pycache__/
 *.pyc
-exports/local/
+
+# OS
 .DS_Store
-builds/
-/*.pdf
-/exports/*.pdf
-/exports/prototypes/
-/previews/*.png
-/previews/final/
-/previews/flagship-draft/
-/previews/mechanical-draft/
-/previews/spacing-draft/
-/exports/review/05-flagship-mechanical.pdf
-/previews/review/05-mechanical-page-*.png
+Thumbs.db
