@@ -4,8 +4,8 @@ Composable Typst library that renders maritime CVs. Today one template,
 `flagship`, takes five independent inputs: candidate JSON, theme, artwork
 pack, layout profile and a durations switch. The product is a family of such
 templates on one shared core, each rendering deck and engine candidates
-(`docs/vision.md`, ADR 0007). Read this file, then open only what your task
-needs.
+(`docs/vision.md`, ADR 0007). Read this file and `docs/preferences.md`, then
+open only what your task needs.
 
 ## Where things are
 
@@ -54,6 +54,7 @@ Full text in `docs/constitution.md`. The short list:
 
 | Read | When |
 |---|---|
+| `docs/preferences.md` | Before every reply to the owner: who he is, how to talk to him, what he decides |
 | `docs/vision.md` | Deciding whether a feature belongs here |
 | `docs/architecture.md` | Before changing any module |
 | `docs/tech-stack.md` | Setting up a machine, or asking "why Typst" |
