@@ -79,6 +79,7 @@ you still want.
 | `Candidate requires identity` or `... companies` | Add the missing top-level key |
 | `Visible vessel durations require months: <ship>` | Add `months`, or hide durations and give `service-months` |
 | `Company service-months does not match vessel months` | Make the total equal the sum |
+| `Known vessel months exceed company total` | With partial vessel months, the company total must be at least their sum |
 | `Company IDs must be unique` | Give the second company a different `id` |
 | `Name exceeds identity plate` | Shorter name, smaller `theme.sizes.name`, or wider `layout.hero.plate-width` |
 | `Contact exceeds hero column` | Shorter value or wider `layout.hero.contacts-width` |

@@ -12,7 +12,10 @@ Read `docs/reference/theme.md` or `docs/reference/artwork-pack.md` first.
 1. Copy `themes/silver-bridge.typ` as the pattern: spread `golden-blue`'s
    theme, set `name`, replace `colors`, `fonts` and any `sizes`.
 2. Every colour key must exist; `validate-theme` fails otherwise. Fonts must
-   be families bundled under `fonts/` or the render will substitute silently.
+   be one of the bundled family strings `Source Sans 3`, `Barlow` or
+   `Cormorant Garamond` (the Barlow Condensed file registers as `Barlow`;
+   check with `typst fonts --font-path fonts`). An unknown name prints
+   `warning: unknown font family` and substitutes; the suite does not catch it.
 3. If the theme changes secondary SVG hues, add the hex values to
    `art-colors`.
 4. Add an example under `examples/` that differs from an existing one by the

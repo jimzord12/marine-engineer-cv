@@ -9,9 +9,9 @@ Read before anything irreversible. Conventions, which do evolve, are in
 - `reference/Marine-Engineer-CV-v11.pdf` is the approved look.
   `examples/engineer.typ` must render pixel-identical to it at 144 dpi with
   identical normalised text on every page. `tests/run.py` enforces this.
-- `tests/baseline.json` pins the SHA-256 of every input that comparison
-  depends on: assets, fonts, example JSON, the reference PDF. Changing any of
-  them is a design decision, recorded as an ADR in `docs/decisions/`, with a
+- `tests/baseline.json` pins the SHA-256 of every asset, font, example JSON,
+  design study and the reference PDF, whether or not the engineer comparison
+  uses it. Changing any of them is a design decision, recorded as an ADR in `docs/decisions/`, with a
   new frozen reference and a version bump on the PDF name.
 - `designs/*.typ` are frozen studies. Copy ideas out of them; do not edit them.
 
