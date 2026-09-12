@@ -1,0 +1,41 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Typst 0.15.1
+        run: |
+          curl -sSL -o typst.tar.xz https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz
+          tar -xJf typst.tar.xz
+          sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          typst --version
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install verification dependencies
+        run: pip install pymupdf==1.28.2 pillow
+
+      - name: Run the regression suite
+        run: python tests/run.py --output builds/ci
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-evidence
+          path: |
+            builds/ci/report.json
+            builds/ci/**/result.json
+            builds/ci/**/diff-*.png
+            builds/ci/*.log
+          if-no-files-found: ignore

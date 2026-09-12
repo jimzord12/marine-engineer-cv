@@ -1,0 +1,60 @@
+# Verification
+
+Read this to know what `python tests/run.py` proves and how to read its
+output.
+
+## Run
+
+```powershell
+python tests/run.py                       # Typst on PATH
+python tests/run.py --typst C:/path/to/typst.exe
+```
+
+Output goes to a new `builds/tests-<timestamp>/` folder. It contains every
+compiled PDF, a `.log` with the compiler's stderr per case, a `report.json`,
+and per-check folders with `result.json` and, on a raster mismatch, a
+`diff-N.png` highlighting changed pixels.
+
+## What it checks
+
+1. **Frozen inputs.** Every path in `tests/baseline.json` still has its
+   recorded SHA-256. Runs first and last.
+2. **Engineer exact match.** `examples/engineer.typ` renders two pages that
+   equal `reference/Marine-Engineer-CV-v11.pdf` pixel for pixel at 144 dpi,
+   with identical whitespace-normalised text per page.
+3. **Hidden durations.** The same example with `vessel-durations=false` keeps
+   every vessel name and rank at the same coordinates and emits no duration
+   text.
+4. **Captain examples.** Both compile to two pages; silver and classic have
+   identical text; no "Engineer" wording appears.
+5. **Every PDF.** Expected page count, no empty page, all fonts embedded, no
+   text outside the page.
+6. **Fixtures under `tests/fixtures/`:**
+
+| Fixture | Cases |
+|---|---|
+| `data.typ` | Duration parts, totals 138 months / 23 vessels / 6 companies, vessel dedup, company-only months; rejects missing months, mismatched totals, negative months |
+| `components.typ` | Hero renders with and without portrait or contacts; rejects a name or email that does not fit |
+| `options.typ` | Company-only months, all optional fields empty, a long vessel name whose duration wraps, with and without durations |
+| `pagination.typ` | Three pages with a company split across pages; rejects overflow and duplicate allocation |
+| `certificate-continuation.typ` | Fifty rows, header repeats on page two |
+| `skills.typ` | Titles, one to three columns, wrapping, two themes, SVG and plain bullets |
+
+Negative cases assert on the exact error text so a message change is a test
+change.
+
+## Reading a failure
+
+- `AssertionError: ('engineer', ...)` with stderr: the example does not
+  compile. Read the `.log`.
+- `Raster mismatch on page N`: open `exact/diff-N.png`. Any non-black pixel
+  is a change from v11.
+- `Frozen file changed: <path>`: an input under the manifest was edited.
+  Either revert it or follow the constitution's procedure for a new
+  reference.
+
+## Adding a check
+
+Add a fixture with `sys.inputs` cases, then a few lines in `run.py` that
+compile it and assert on the PDF. Keep the runner linear and readable; it is
+the specification of what "passing" means.
