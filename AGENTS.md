@@ -49,6 +49,7 @@ Full text in `docs/constitution.md`. The short list:
 3. Public content is fictional. Real candidate data lives in `private/`, which is ignored.
 4. No automatic font shrinking. Overflow fails loudly and the page plan is changed by hand.
 5. Evidence before "done": the suite output, a render, or a diff image.
+6. The framework is the happy path, not a cage. Go around a component when the work needs it, record the bypass in `docs/framework-gaps.md`, and never go around rules 1 to 4.
 
 ## Documentation
 
@@ -59,6 +60,7 @@ Full text in `docs/constitution.md`. The short list:
 | `docs/architecture.md` | Before changing any module |
 | `docs/tech-stack.md` | Setting up a machine, or asking "why Typst" |
 | `docs/constitution.md` | Before anything irreversible |
+| `docs/framework-gaps.md` | Before planning framework work, and after any bypass of a component or template |
 | `docs/conventions.md` | Before writing code, docs or a commit message |
 | `docs/git-workflow.md` | Branching, commits, PRs, tags, what gets committed |
 | `docs/reference/candidate-schema.md` | Editing a candidate JSON |
@@ -89,5 +91,8 @@ that names the files to copy, the commands to run and the evidence to report.
   (constitution section 7).
 - Every non-trivial change ends with `python tests/run.py` passing and the
   evidence path reported. A visual change also needs a rendered page.
+- If you had to go around a component, template or the contract to deliver
+  what the owner wanted, add an entry to `docs/framework-gaps.md` before
+  reporting done. A bypass is a lesson, not a fault.
 - Commit and push on the working branch freely. Never merge to `main`
   without explicit approval in the conversation.

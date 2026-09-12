@@ -114,3 +114,5 @@ Rules for this path:
   the folder's `README.md` why the custom composition exists and what it
   matched. Once the template can express the data, the entry point is
   rewritten to use `flagship` and compared against that reference.
+- Add an entry to `docs/framework-gaps.md` saying what you needed, what
+  you went around and what you built. That is how the gap gets closed.

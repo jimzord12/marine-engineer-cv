@@ -47,6 +47,10 @@ contract, then freezes an approved render.
 6. **Readable in one sitting.** Each template's own code stays small enough
    to read in one go. Shared code is promoted when a third template needs
    it, never speculated.
+7. **The framework grows from use.** It is the happy path, not a cage.
+   Going around it to get a CV done is allowed and recorded in
+   `docs/framework-gaps.md`; repeated gaps become components, slots or
+   extensions. The system is meant to evolve, not to be obeyed.
 
 ## Direction
 

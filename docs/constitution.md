@@ -72,3 +72,18 @@ The team optimises for the smallest commercially sound result: happy path,
 common failures, realistic regressions. No speculative abstraction, no
 opportunistic cleanup in a feature change. Push back in the conversation when
 a request seems wrong; proceed once the owner decides.
+
+## 10. The framework is the happy path, not a cage
+
+The core, the templates and the component contract are the preferred way
+to build. They are new and small, and they will not cover everything. When
+the work the owner wants cannot be done through them, an agent goes around
+them: composes by hand, adds a one-off, extends a component locally. That is
+not a failure; it is how the framework learns what it is missing.
+
+Two conditions. First, every bypass is recorded in `docs/framework-gaps.md`
+in a few lines: what was needed, what was bypassed, what was built instead.
+Second, a bypass goes around components, never around rules: the frozen
+references, the fictional-content rule, the no-shrinking rule and the
+totals rule still hold. The gaps log feeds the rule of three; a gap that
+appears again becomes a component, a slot or an extension.

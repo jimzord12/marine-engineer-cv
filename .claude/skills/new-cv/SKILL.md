@@ -34,7 +34,8 @@ Follow `docs/guides/build-a-cv.md`. This skill is the checklist.
    `Page plan must cover each vessel row once, in candidate order` for more.
    If the data does not fit `flagship` (contract periods instead of months,
    a three-column certificate table), use the custom-composition path in
-   guide section 7 and record the reason in the folder's `README.md`.
+   guide section 7, record the reason in the folder's `README.md`, and add
+   an entry to `docs/framework-gaps.md`.
 4. Compile to a new file under `builds/`:
    `typst compile --root . --font-path fonts <entry> builds/<name>-01.pdf`.
 5. On a fit or overflow error, apply the fix the message names. Page plan
